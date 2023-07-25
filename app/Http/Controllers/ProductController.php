@@ -21,6 +21,17 @@ class ProductController extends Controller
         return view('welcome')->with($data);
     }
 
+    public function shop()
+    {
+        $products = ModelsProduct::paginate(20);
+        $brands = ModelsProduct::all()->unique('car_brand')->pluck('car_brand');
+        $collections = ModelsProduct::all()->unique('collection')->pluck('collection');
+        $filterTypes = ModelsProduct::all()->unique('filter_type')->pluck('filter_type');
+        $filterProductVars = array('brands' => $brands, 'collections' => $collections, 'filterTypes' => $filterTypes);
+        $data = compact('products', 'filterProductVars');
+        return view('shop')->with($data);
+    }
+
     public static function getModels(String $brand)
     {
         $carModels = ModelsProduct::where('car_brand', $brand)->get()->unique('model')->pluck('model');

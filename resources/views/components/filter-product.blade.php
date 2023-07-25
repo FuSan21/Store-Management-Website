@@ -1,6 +1,6 @@
 <div id="filter-product">
     <div class="flex items-center justify-between ">
-        <h1 class="text-2xl font-bold text-customBlue dark:text-lightblue">Filter</h1>
+        <h1 class="text-2xl font-bold text-blue-600 dark:text-lightblue">Filter</h1>
     </div>
     <div class="hidden divide-x divide-gray-300 md:grid-cols-3 lg:grid-cols-5 md:grid dark:divide-gray-700">
         <div class="p-1">
@@ -14,26 +14,16 @@
             </div>
             <div
                 class="overflow-x-auto max-h-40 scrollbar scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 hover:scrollbar-thumb-gray-500 dark:hover:scrollbar-thumb-gray-500 dark:scrollbar-track-gray-700 scrollbar-track-gray-200">
-                <a class="block pl-3 pr-4 py-2 border-l-4 border-customRed text-base text-customRed bg-gray-100 dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:text-customBlue focus:border-customBlye transition duration-150 ease-in-out flex justify-start items-center cursor-pointer"
-                    href="https://bogramotors.co.uk/shop/all">
+                <a class="pl-3 pr-4 py-2 border-l-4 border-red-400 text-base text-red-600 bg-gray-100 dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:text-blue-600 focus:border-blue-800 transition duration-150 ease-in-out flex justify-start items-center cursor-pointer"
+                    href="{{ url('/shop/collection/All') }}">
                     All
                 </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    href="https://bogramotors.co.uk/shop/air-filter">
-                    Air Filter
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    href="https://bogramotors.co.uk/shop/oil-filter">
-                    Oil Filter
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    href="https://bogramotors.co.uk/shop/0w-30">
-                    0w-30
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    href="https://bogramotors.co.uk/shop/5w-30">
-                    5w-30
-                </a>
+                @foreach ($collections as $collection)
+                    <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out cursor-pointer"
+                        href="{{ url('/shop/collection/' . $collection) }}">
+                        {{ $collection }}
+                    </a>
+                @endforeach
             </div>
         </div>
 
@@ -73,62 +63,12 @@
             </div>
             <div
                 class="overflow-x-auto max-h-40 scrollbar scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 hover:scrollbar-thumb-gray-500 dark:hover:scrollbar-thumb-gray-500 dark:scrollbar-track-gray-700 scrollbar-track-gray-200">
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectSubCats(1)">
-                    Polyurethane
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectSubCats(2)">
-                    Plastic Panel
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectSubCats(3)">
-                    Metal Cap
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectSubCats(4)">
-                    Plastic Cap
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectSubCats(5)">
-                    Eco Felt
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectSubCats(6)">
-                    Spin On
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectSubCats(7)">
-                    ECO type
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectSubCats(8)">
-                    Plastic Cap
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectSubCats(11)">
-                    4 liter
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectSubCats(12)">
-                    5 Liter
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectSubCats(13)">
-                    1 Liter
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectSubCats(14)">
-                    5 Liter
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectSubCats(15)">
-                    4 Liter
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectSubCats(16)">
-                    1 Liter
-                </a>
+                @foreach ($filterTypes as $filterType)
+                    <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out cursor-pointer"
+                        href="{{ url('/shop/filterType/' . $filterType) }}">
+                        {{ $filterType }}
+                    </a>
+                @endforeach
             </div>
         </div>
 
@@ -160,197 +100,14 @@
             </div>
             <div
                 class="overflow-x-auto max-h-40 scrollbar scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 hover:scrollbar-thumb-gray-500 dark:hover:scrollbar-thumb-gray-500 dark:scrollbar-track-gray-700 scrollbar-track-gray-200">
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
+                <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out cursor-pointer"
                     wire:click="selectCar(36)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09122022161629png"
-                            class="w-6 h-6" alt="">
-                        Audi
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(38)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_BMW.png" class="w-6 h-6"
-                            alt="">
-                        BMW
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(42)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-01272023121526png"
-                            class="w-6 h-6" alt="">
-                        Castrol
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(8)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09122022161453png"
-                            class="w-6 h-6" alt="">
-                        Citroen
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(24)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09122022161542png"
-                            class="w-6 h-6" alt="">
-                        Fiat
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(50)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_Ford-01282023131117png"
-                            class="w-6 h-6" alt="">
-                        Ford
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(44)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-01272023152858png"
-                            class="w-6 h-6" alt="">
-                        Fuchs
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(41)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_Honda-09122022161926png"
-                            class="w-6 h-6" alt="">
-                        Honda
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(29)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09132022160853png"
-                            class="w-6 h-6" alt="">
-                        Land Rover
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(10)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09122022161504png"
-                            class="w-6 h-6" alt="">
-                        Lexus
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(49)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_Mercedes-Benz-01282023131049png"
-                            class="w-6 h-6" alt="">
-                        Mercedes-Benz
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(37)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09122022161643png"
-                            class="w-6 h-6" alt="">
-                        Mitsubishi
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(47)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_Mobil-01272023130755png"
-                            class="w-6 h-6" alt="">
-                        Mobil
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(45)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_Motul-01272023121754png"
-                            class="w-6 h-6" alt="">
-                        Motul
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(32)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_Nissan.png" class="w-6 h-6"
-                            alt="">
-                        Nissan
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(43)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-01272023121546png"
-                            class="w-6 h-6" alt="">
-                        Petronas
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(39)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09132022155707png"
-                            class="w-6 h-6" alt="">
-                        Peugeot
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(48)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_Shell-01272023130814png"
-                            class="w-6 h-6" alt="">
-                        Shell
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(21)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09132022155158png"
-                            class="w-6 h-6" alt="">
-                        Toyota
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(46)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_VALVOLINE-01272023130730png"
-                            class="w-6 h-6" alt="">
-                        Valvoline
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(6)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09122022161441png"
-                            class="w-6 h-6" alt="">
-                        Vauxhall
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(33)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_Vaushall.png" class="w-6 h-6"
-                            alt="">
-                        Vauxhall
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(40)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09122022161718png"
-                            class="w-6 h-6" alt="">
-                        Volkswagen
-                    </div>
-                </a>
-                <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out cursor-pointer"
-                    wire:click="selectCar(12)">
-                    <div class="flex items-center justify-start gap-5">
-                        <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09122022161514png"
-                            class="w-6 h-6" alt="">
-                        Volvo
-                    </div>
+                    @foreach ($brands as $brand)
+                        <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out cursor-pointer"
+                            href="{{ url('/shop/brand/' . $brand) }}">
+                            {{ $brand }}
+                        </a>
+                    @endforeach
                 </a>
             </div>
         </div>
@@ -406,15 +163,15 @@
         </div>
     </div>
 
-    <div class="md:hidden flex-col w-full transition-all duration-300 ease-in-out max-h-[100vh] overflow-y-auto">
+    {{-- <div class="md:hidden flex-col w-full transition-all duration-300 ease-in-out max-h-[100vh] overflow-y-auto">
         <div
             class="flex flex-col flex-shrink-0 w-full border-r border-gray-200 bg-gradient-to-t from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 dark:border-gray-700">
-            <nav class="flex-grow pb-4 md:block md:pb-0 md:overflow-y-auto">
+            <nav class="flex-grow pb-4 md:md:pb-0 md:overflow-y-auto">
 
                 <ul>
 
                     <li x-data="{ showDrop: true }">
-                        <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out flex justify-between cursor-pointer"
+                        <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out flex justify-between cursor-pointer"
                             x-on:click="showDrop=!showDrop">
                             <div class="flex items-center gap-2 text-gray-600 dark:text-gray-400">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
@@ -427,8 +184,8 @@
                             </div>
 
 
-                            <svg x-show="!showDrop" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                            <svg x-show="!showDrop" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M19 9l-7 7-7-7"></path>
                             </svg>
@@ -446,23 +203,23 @@
                             x-transition:leave="transition transform duration-300"
                             x-transition:leave-start="translate-y-0 opacity-100"
                             x-transition:leave-end="-translate-y-9 opacity-0">
-                            <a class="block pl-3 pr-4 py-2 border-l-4 border-customRed text-base text-customRed bg-gray-100 dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:text-customBlue focus:border-customBlye transition duration-150 ease-in-out flex justify-start items-center pl-12 cursor-pointer"
+                            <a class="pl-3 pr-4 py-2 border-l-4 border-red-400 text-base text-red-600 bg-gray-100 dark:text-gray-300 dark:bg-gray-700 focus:outline-none focus:text-blue-600 focus:border-blue-800 transition duration-150 ease-in-out flex justify-start items-center pl-12 cursor-pointer"
                                 href="https://bogramotors.co.uk/shop/all">
                                 All
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 href="https://bogramotors.co.uk/shop/air-filter">
                                 Air Filter
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 href="https://bogramotors.co.uk/shop/oil-filter">
                                 Oil Filter
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 href="https://bogramotors.co.uk/shop/0w-30">
                                 0w-30
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 href="https://bogramotors.co.uk/shop/5w-30">
                                 5w-30
                             </a>
@@ -472,7 +229,7 @@
 
 
                     <li x-data="{ showDrop: false }">
-                        <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out flex justify-between cursor-pointer"
+                        <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out flex justify-between cursor-pointer"
                             @click="showDrop=!showDrop">
                             <div class="flex items-center">
                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
@@ -530,59 +287,59 @@
                             x-transition:leave-start="translate-y-0 opacity-100"
                             x-transition:leave-end="-translate-y-9 opacity-0" style="display: none;">
 
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectSubCats(1)">
                                 Polyurethane
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectSubCats(2)">
                                 Plastic Panel
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectSubCats(3)">
                                 Metal Cap
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectSubCats(4)">
                                 Plastic Cap
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectSubCats(5)">
                                 Eco Felt
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectSubCats(6)">
                                 Spin On
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectSubCats(7)">
                                 ECO type
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectSubCats(8)">
                                 Plastic Cap
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectSubCats(11)">
                                 4 liter
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectSubCats(12)">
                                 5 Liter
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectSubCats(13)">
                                 1 Liter
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectSubCats(14)">
                                 5 Liter
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectSubCats(15)">
                                 4 Liter
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectSubCats(16)">
                                 1 Liter
                             </a>
@@ -591,7 +348,7 @@
                     </li>
 
                     <li x-data="{ showDrop: false }">
-                        <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out flex justify-between cursor-pointer"
+                        <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out flex justify-between cursor-pointer"
                             @click="showDrop=!showDrop">
                             <div class="flex items-center">
                                 <svg class="w-5 h-5 mr-3" version="1.1" id="Capa_1"
@@ -640,7 +397,7 @@
                             x-transition:leave-start="translate-y-0 opacity-100"
                             x-transition:leave-end="-translate-y-9 opacity-0" style="display: none;">
 
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(36)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09122022161629png"
@@ -648,7 +405,7 @@
                                     Audi
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(38)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_BMW.png"
@@ -656,7 +413,7 @@
                                     BMW
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(42)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-01272023121526png"
@@ -664,7 +421,7 @@
                                     Castrol
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(8)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09122022161453png"
@@ -672,7 +429,7 @@
                                     Citroen
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(24)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09122022161542png"
@@ -680,7 +437,7 @@
                                     Fiat
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(50)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_Ford-01282023131117png"
@@ -688,7 +445,7 @@
                                     Ford
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(44)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-01272023152858png"
@@ -696,7 +453,7 @@
                                     Fuchs
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(41)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_Honda-09122022161926png"
@@ -704,7 +461,7 @@
                                     Honda
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(29)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09132022160853png"
@@ -712,7 +469,7 @@
                                     Land Rover
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(10)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09122022161504png"
@@ -720,7 +477,7 @@
                                     Lexus
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(49)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_Mercedes-Benz-01282023131049png"
@@ -728,7 +485,7 @@
                                     Mercedes-Benz
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(37)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09122022161643png"
@@ -736,7 +493,7 @@
                                     Mitsubishi
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(47)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_Mobil-01272023130755png"
@@ -744,7 +501,7 @@
                                     Mobil
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(45)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_Motul-01272023121754png"
@@ -752,7 +509,7 @@
                                     Motul
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(32)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_Nissan.png"
@@ -760,7 +517,7 @@
                                     Nissan
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(43)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-01272023121546png"
@@ -768,7 +525,7 @@
                                     Petronas
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(39)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09132022155707png"
@@ -776,7 +533,7 @@
                                     Peugeot
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(48)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_Shell-01272023130814png"
@@ -784,7 +541,7 @@
                                     Shell
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(21)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09132022155158png"
@@ -792,7 +549,7 @@
                                     Toyota
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(46)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_VALVOLINE-01272023130730png"
@@ -800,7 +557,7 @@
                                     Valvoline
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(6)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09122022161441png"
@@ -808,7 +565,7 @@
                                     Vauxhall
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(33)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_Vaushall.png"
@@ -816,7 +573,7 @@
                                     Vauxhall
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(40)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09122022161718png"
@@ -824,7 +581,7 @@
                                     Volkswagen
                                 </div>
                             </a>
-                            <a class="flex justify-start items-center block pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-customBlue dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-customBlue dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-customBlue transition duration-150 ease-in-out pl-12 cursor-pointer"
+                            <a class="flex justify-start items-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:bg-gray-700 hover:bg-gray-100 hover:border-blue-800 dark:hover:border-gray-500 focus:outline-none focus:text-gray-800 focus:border-blue-800 transition duration-150 ease-in-out pl-12 cursor-pointer"
                                 wire:click="selectCar(12)">
                                 <div class="flex items-center justify-start gap-5">
                                     <img src="https://bogramotors.co.uk/storage/uploads/logos/logo_-09122022161514png"
@@ -839,6 +596,6 @@
                 </ul>
             </nav>
         </div>
-    </div>
+    </div> --}}
 
 </div>

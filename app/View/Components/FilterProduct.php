@@ -6,14 +6,19 @@ use Illuminate\View\Component;
 
 class FilterProduct extends Component
 {
+    public $brands;
+    public $collections;
+    public $filterTypes;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->brands = $data['brands'];
+        $this->collections = $data['collections'];
+        $this->filterTypes = $data['filterTypes'];
     }
 
     /**
