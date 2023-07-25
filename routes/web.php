@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +14,17 @@ use App\Http\Controllers\ProductsController;
 |
 */
 
-Route::get('/', [ProductsController::class, 'index']);
+Route::get('/', [ProductController::class, 'index']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
+
+Route::get('updateModels/{brand}', function ($brand) {
+    return ProductController::getModels($brand);
+});
+
+Route::get('updateSpecifications/{brand}/{specs}', function ($brand, $specs) {
+    return ProductController::getSpecifications($brand, $specs);
+});

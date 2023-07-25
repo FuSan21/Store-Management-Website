@@ -4,21 +4,19 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class FindProduct extends Component
+class ProductGridSlider extends Component
 {
-    public $brands;
-    public $collections;
-    public $filterTypes;
+    public $sliderNo;
+    public $products;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($sliderNo, $data)
     {
-        $this->brands = $data['brands'];
-        $this->collections = $data['collections'];
-        $this->filterTypes = $data['filterTypes'];
+        $this->products = $data;
+        $this->sliderNo = $sliderNo;
     }
 
     /**
@@ -28,6 +26,6 @@ class FindProduct extends Component
      */
     public function render()
     {
-        return view('components.find-product');
+        return view('components.product-grid-slider');
     }
 }

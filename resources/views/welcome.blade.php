@@ -4,41 +4,19 @@
     <div
         class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
         <div class="container pt-20">
-            <x-find-product />
+            <x-find-product :data="$findProductVars" />
+            <p class="my-6 text-4xl font-bold text-center text-red-700">Featured Products</p>
+            <hr>
+            <x-product-grid-slider sliderNo="1" :data="$featureds" />
+            <p class="my-6 text-4xl font-bold text-center text-red-700">Best Seller</p>
+            <hr>
+            <x-product-grid-slider slider_no="2" :data="$bestSellers" />
             <p class="my-6 text-4xl font-bold text-center text-red-700">New Arrivals</p>
-            <div id="product-grid-1" class="container product-grid columns-3xs">
-                <div class="mb-4 text-black font-bold">Engines</div>
-                <hr>
-                @foreach ($engines as $engine)
-                    <x-product-grid :data="$engine" />
-                @endforeach
-            </div>
-
-            <div id="product-grid-2" class="container product-grid columns-3xs">
-                <div class="mb-4 text-black font-bold">Brakes</div>
-                <hr>
-                @foreach ($brakes as $brake)
-                    <x-product-grid :data="$brake" />
-                @endforeach
-
-            </div>
-
-            <div id="product-grid-3" class="container product-grid columns-3xs">
-                <div class="mb-4 text-black font-bold">Suspensions</div>
-                <hr>
-                @foreach ($suspensions as $suspension)
-                    <x-product-grid :data="$suspension" />
-                @endforeach
-
-            </div>
-            <div id="product-grid-4" class="container product-grid columns-3xs">
-                <div class="mb-4 text-black font-bold">Electricals</div>
-                <hr>
-                @foreach ($electricals as $electrical)
-                    <x-product-grid :data="$electrical" />
-                @endforeach
-
-            </div>
+            <hr>
+            <x-product-grid-slider slider_no="3" :data="$newArrivals" />
+            <p class="my-6 text-4xl font-bold text-center text-red-700">Previously Visited</p>
+            <hr>
+            <x-product-grid-slider slider_no="4" :data="$prevVisits" />
         </div>
     </div>
 @endsection

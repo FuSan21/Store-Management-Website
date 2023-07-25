@@ -2,40 +2,38 @@
     class="px-2 py-3 md:px-6 md:py-4 bg-white border border-gray-300 dark:border-gray-700 dark:bg-gray-800 w-9/12 mx-auto backdrop-filter backdrop-blur-lg bg-opacity-30 dark:backdrop-filter dark:backdrop-blur-lg dark:bg-opacity-30">
     <h4 class="text-2xl font-bold dark:text-gray-300">Find your Product</h4>
     <form wire:submit.prevent="search">
-        <select wire:model="carId" required=""
+        <select required id="car_brand" name="car_brand"
             class="block w-full mt-6 transition duration-300 ease-in-out bg-transparent border-transparent dark:text-gray-400 focus:border-red focus:outline-none focus:ring-transparent">
-            <option disabled="" selected="" value="">Car Brand</option>
-            <option value="36">Audi</option>
-            <option value="38">BMW</option>
-            <option value="42">Castrol</option>
+            <option disabled selected value="">Car Brand</option>
+            @foreach ($brands as $brand)
+                <option value="{{ $brand }}">{{ $brand }}</option>
+            @endforeach
         </select>
-        <select wire:model="modelName"
+        <select required id="car_model" name="car_model"
             class="block w-full mt-6 transition duration-300 ease-in-out bg-transparent border-transparent dark:text-gray-400 focus:border-red focus:outline-none focus:ring-transparent">
-            <option disabled="" selected="" value="">Model</option>
-            <option value="453">EDGE</option>
-            <option value="657">MAGNATEC</option>
+            <option disabled selected value="">Model (Select Car Brand to Load)</option>
         </select>
 
-        <select wire:model="modelId"
+        <select required id="specification" name="specification"
             class="block w-full mt-6 transition duration-300 ease-in-out bg-transparent border-transparent dark:text-gray-400 focus:border-red focus:outline-none focus:ring-transparent">
-            <option disabled="" selected="" value="-1">Specification</option>
-            <option value="3563">Syntium 5000, Patrol, Petrol/Diesel, 2000-2023</option>
+            <option disabled selected value="">Specification (Select Car Model to Load)</option>
         </select>
 
 
-        <select wire:model="catId" required=""
+        <select required="" id="collection" name="collection"
             class="block w-full mt-6 transition duration-300 ease-in-out bg-transparent border-transparent dark:text-gray-400 focus:border-red focus:outline-none focus:ring-transparent">
-            <option value="">Category</option>
-            <option value="1">Air Filter</option>
-            <option value="2">Oil Filter</option>
+            <option disabled selected value="">Collection</option>
+            @foreach ($collections as $collection)
+                <option value="{{ $collection }}">{{ $collection }}</option>
+            @endforeach
         </select>
 
-        <select wire:model="subId"
+        <select id="filter_type" name="filter_type"
             class="block w-full mt-6 transition duration-300 ease-in-out bg-transparent border-transparent dark:text-gray-400 focus:border-red focus:outline-none focus:ring-transparent">
-            <option value="">Sub-category (Optional)</option>
-            <option value="2">Plastic Panel</option>
-            <option value="3">Metal Cap</option>
-            <option value="4">Plastic Cap</option>
+            <option disabled selected value="">Filter Type (Optional)</option>
+            @foreach ($filterTypes as $filterType)
+                <option value="{{ $filterType }}">{{ $filterType }}</option>
+            @endforeach
         </select>
 
         <button type="submit"
@@ -44,3 +42,74 @@
         </button>
     </form>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#car_brand').on('change', function() {
+            var carSpec = $('#specification').val();
+            var carBrand = $(this).val();
+            if (carBrand) {
+                $.ajax({
+                    url: '/updateModels/' + carBrand,
+                    type: "GET",
+                    data: {
+                        "_token": "{{ csrf_token() }}"
+                    },
+                    dataType: "json",
+                    success: function(data) {
+                        if (data) {
+                            $('#car_model').empty();
+                            $('#car_model').append(
+                                '<option disabled selected value="">Car Model</option>');
+                            $.each(data, function(key, car_model) {
+                                $('select[name="car_model"]').append(
+                                    '<option value="' + car_model + '">' +
+                                    car_model + '</option>');
+                            });
+                            $('#specification').empty()
+                            $('#specification').append(
+                                '<option disabled selected value="">Specification (Select Car Model to Load)</option>'
+                            );
+                        } else {
+                            $('#car_model').empty();
+                        }
+                    }
+                });
+            } else {
+                $('#car_model').empty();
+            }
+        });
+
+        $('#car_model').on('change', function() {
+            var carBrand = $('#car_brand').val();
+            var carModel = $(this).val();
+            if (carModel) {
+                $.ajax({
+                    url: '/updateSpecifications/' + carBrand + '/' + carModel,
+                    type: "GET",
+                    data: {
+                        "_token": "{{ csrf_token() }}"
+                    },
+                    dataType: "json",
+                    success: function(data) {
+                        if (data) {
+                            $('#specification').empty();
+                            $('#specification').append(
+                                '<option disabled selected value="">Specification</option>'
+                            );
+                            $.each(data, function(key, specification) {
+                                $('select[name="specification"]').append(
+                                    '<option value="' + specification + '">' +
+                                    specification + '</option>');
+                            });
+                        } else {
+                            $('#specification').empty();
+                        }
+                    }
+                });
+            } else {
+                $('#specification').empty();
+            }
+        });
+    });
+</script>

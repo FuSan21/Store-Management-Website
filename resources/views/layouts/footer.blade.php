@@ -169,7 +169,8 @@
         </div>
     </div>
 </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
+<script src="{{ asset('/js/jquery.js') }}"></script>
+<script src="{{ asset('/js/plain.js') }}"></script>
 </body>
 
 </html>

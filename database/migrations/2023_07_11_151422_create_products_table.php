@@ -19,11 +19,12 @@ class CreateProductsTable extends Migration
             $table->string('euro_id', 50)->unique();
             $table->string('oem_id', 50)->unique();
             $table->string('image')->default('https://www.shutterstock.com/image-vector/demo-cursor-icon-presentation-billboard-600w-318562925.jpg');
+            $table->float('price', 8, 2);
             $table->string('collection', 20);
             $table->string('filter_type', 20);
             $table->string('car_brand', 20);
             $table->string('model', 20);
-            $table->string('specification')->default('{"specifications":[ {"engine":"1.0L", "fuelType":"Diesel", "year":"2013-2022"}, {"engine":"1.5L", "fuelType":"Diesel", "year":"2013-2022"}, {"engine":"2.0L", "fuelType":"Diesel", "year":"2013-2022"}, ] }');
+            $table->json('specification');
         });
     }
 
