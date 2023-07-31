@@ -19,6 +19,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/orderdetails', function () {
+    return view('orderdetails');
+})->middleware(['auth'])->name('orderdetails');
+
+
+Route::get('/orders', function () {
+    return view('orders');
+})->middleware(['auth'])->name('orders');
+
 Route::get('/shop', [ProductController::class, 'shop']);
 
 require __DIR__ . '/auth.php';
