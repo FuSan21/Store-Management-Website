@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use Dotenv\Util\Str;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/shop', [ProductController::class, 'shop']);
+Route::get('/shop', function (Request $request) {
+    return ProductController::shop($request);
+});
+
+Route::get('/shop/filtered', function (Request $request) {
+    return ProductController::filteredShop($request);
+});
 
 require __DIR__ . '/auth.php';
 
@@ -29,4 +37,10 @@ Route::get('updateModels/{brand}', function ($brand) {
 
 Route::get('updateSpecifications/{brand}/{specs}', function ($brand, $specs) {
     return ProductController::getSpecifications($brand, $specs);
+});
+
+Route::post('/shop/search', [ProductController::class, 'getSearchedProducts']);
+
+Route::get('product/{query}', function ($query) {
+    return ProductController::product($query);
 });
