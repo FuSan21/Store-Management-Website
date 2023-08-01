@@ -21,6 +21,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/orderdetails', function () {
+    return view('orderdetails');
+})->middleware(['auth'])->name('orderdetails');
+
+
+Route::get('/orders', function () {
+    return view('orders');
+})->middleware(['auth'])->name('orders');
+
 Route::get('/shop', function (Request $request) {
     return ProductController::shop($request);
 });
