@@ -1,4 +1,4 @@
-
+@extends('layouts.main')
 @section('main-section')
     @php
         $selectedFilter = isset($selectedFilter) ? $selectedFilter : ['collection' => 'all', 'filter_type' => 'all', 'brand' => 'all', 'model' => 'all', 'specification' => 'all'];

@@ -10,9 +10,8 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('/font-awesome_6.4.0_css_all.min.css') }}" />
+
     <!-- Styles -->
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/plain.css') }}" rel="stylesheet">
@@ -26,8 +25,7 @@
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="/" class="flex items-center">
                     <img src="{{ asset('/demo-logo.png') }}" class="h-8 mr-3" alt="StoreManagementWebsite Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap">Store Management
-                        Website</span>
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap">Vehicle Accessory Shop</span>
                 </a>
 
                 <div class="flex items-center md:order-2">

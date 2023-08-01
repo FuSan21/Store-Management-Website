@@ -8,16 +8,16 @@
             <x-find-product :data="$findProductVars" />
             <p class="my-6 text-4xl font-bold text-center text-red-700">Featured Products</p>
             <hr>
-            <x-product-grid-slider sliderNo="1" :data="$featureds" />
+            <x-product-grid-slider :data="$featureds" />
             <p class="my-6 text-4xl font-bold text-center text-red-700">Best Seller</p>
             <hr>
-            <x-product-grid-slider slider_no="2" :data="$bestSellers" />
+            <x-product-grid-slider :data="$bestSellers" />
             <p class="my-6 text-4xl font-bold text-center text-red-700">New Arrivals</p>
             <hr>
-            <x-product-grid-slider slider_no="3" :data="$newArrivals" />
+            <x-product-grid-slider :data="$newArrivals" />
             <p class="my-6 text-4xl font-bold text-center text-red-700">Previously Visited</p>
             <hr>
-            <x-product-grid-slider slider_no="4" :data="$prevVisits" />
+            <x-product-grid-slider :data="$prevVisits" />
         </div>
     </div>
 @endsection

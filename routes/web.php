@@ -48,8 +48,6 @@ Route::get('updateSpecifications/{brand}/{specs}', function ($brand, $specs) {
     return ProductController::getSpecifications($brand, $specs);
 });
 
-Route::post('/shop/search', [ProductController::class, 'getSearchedProducts']);
-
 Route::get('product/{query}', function ($query) {
     return ProductController::product($query);
 });
