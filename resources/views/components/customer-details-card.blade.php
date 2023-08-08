@@ -10,7 +10,10 @@
                 <div class="flex justify-start items-start flex-col space-y-2">
                     <p class="text-base dark:text-white font-semibold leading-4 text-left text-gray-800">
                         {{ $name }}</p>
-                    <p class="text-sm dark:text-gray-300 leading-5 text-gray-600">{{ $pastOrderCount }} Previous Orders
+                    @if (!is_null($pastOrderCount))
+                        <p class="text-sm dark:text-gray-300 leading-5 text-gray-600">{{ $pastOrderCount }} Previous
+                            Orders
+                    @endif
                     </p>
                 </div>
             </div>
@@ -27,14 +30,24 @@
                 <div
                     class="flex justify-center md:justify-start items-center md:items-start flex-col space-y-4 xl:mt-8">
                     <p class="text-base dark:text-white font-semibold leading-4 text-center md:text-left text-gray-800">
-                        Shipping Address</p>
+                        @if (is_null($pastOrderCount))
+                            Shipped to
+                        @else
+                            Shipping Address
+                        @endif
+                    </p>
                     <p
                         class="w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">
                         {{ $shippingAddress }}</p>
                 </div>
                 <div class="flex justify-center md:justify-start items-center md:items-start flex-col space-y-4">
                     <p class="text-base dark:text-white font-semibold leading-4 text-center md:text-left text-gray-800">
-                        Billing Address</p>
+                        @if (is_null($pastOrderCount))
+                            Billed to
+                        @else
+                            Billing Address
+                        @endif
+                    </p>
                     <p
                         class="w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">
                         {{ $billingAddress }}</p>
