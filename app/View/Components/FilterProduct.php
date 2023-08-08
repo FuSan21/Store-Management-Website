@@ -9,9 +9,6 @@ class FilterProduct extends Component
     public $brands;
     public $collections;
     public $filterTypes;
-    public $models;
-    public $specifications;
-    public $selectedFilter;
     /**
      * Create a new component instance.
      *
@@ -19,16 +16,9 @@ class FilterProduct extends Component
      */
     public function __construct($data)
     {
-        $this->selectedFilter = $data['selectedFilter'];
-        $this->brands = $data['filterProductVars']['brands'];
-        $this->collections = $data['filterProductVars']['collections'];
-        $this->filterTypes = $data['filterProductVars']['filterTypes'];
-        if (!empty($data['filterProductVars']['models'])) {
-            $this->models = $data['filterProductVars']['models'];
-        } else $this->models = array();
-        if (isset($data['filterProductVars']['specifications'])) {
-            $this->specifications = $data['filterProductVars']['specifications'];
-        } else $this->specifications = array();
+        $this->brands = $data['brands'];
+        $this->collections = $data['collections'];
+        $this->filterTypes = $data['filterTypes'];
     }
 
     /**
