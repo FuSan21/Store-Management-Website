@@ -6,15 +6,14 @@ use Illuminate\View\Component;
 
 class SearchSortProduct extends Component
 {
-    public int $sortMode;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(int $sortMode)
+    public function __construct()
     {
-        $this->sortMode = $sortMode;
+        //
     }
 
     /**
