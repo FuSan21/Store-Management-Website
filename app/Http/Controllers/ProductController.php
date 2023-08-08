@@ -10,6 +10,7 @@ class ProductController extends Controller
 {
     public function index()
     {
+        $pageName = 'Home';
         $newArrivals = ModelsProduct::all()->random(5)->toArray();
         $bestSellers = ModelsProduct::all()->random(5)->toArray();
         $featureds = ModelsProduct::all()->random(5)->toArray();
@@ -18,12 +19,13 @@ class ProductController extends Controller
         $collections = ModelsProduct::all()->unique('collection')->pluck('collection');
         $filterTypes = ModelsProduct::all()->unique('filter_type')->pluck('filter_type');
         $findProductVars = array('brands' => $brands, 'collections' => $collections, 'filterTypes' => $filterTypes);
-        $data = compact('newArrivals', 'bestSellers', 'featureds', 'prevVisits', 'findProductVars');
+        $data = compact('newArrivals', 'bestSellers', 'featureds', 'prevVisits', 'findProductVars', 'pageName');
         return view('welcome')->with($data);
     }
 
     public static function shop(Request $request)
     {
+        $pageName = 'Shop';
         //sort mode: 1 - default, 2 - brand asc, 3 - brand desc, 4 - model asc, 5 - model desc, 6 - price desc, 7 - price asc
         switch ($request->sortMode) {
             case 1:
@@ -62,12 +64,13 @@ class ProductController extends Controller
         $filterProductVars = array('brands' => $brands, 'collections' => $collections, 'filterTypes' => $filterTypes);
         $isFiltered = false;
         $isSearch = isset($request->searchQuery);
-        $data = compact('products', 'filterProductVars', 'sortMode', 'isFiltered', 'isSearch');
+        $data = compact('products', 'filterProductVars', 'sortMode', 'isFiltered', 'isSearch', 'pageName');
         return view('shop')->with($data);
     }
 
     public static function filteredShop($request)
     {
+        $pageName = 'Shop';
         $brands = ModelsProduct::all()->unique('car_brand')->pluck('car_brand');
         $collections = ModelsProduct::all()->unique('collection')->pluck('collection');
         $filterTypes = ModelsProduct::all()->unique('filter_type')->pluck('filter_type');
@@ -97,7 +100,7 @@ class ProductController extends Controller
                 /* $products['specification'] = $request->specification */;
         }
         $products = ModelsProduct::where($products)->paginate(20)->withQueryString();
-        $data = compact('products', 'filterProductVars', 'selectedFilter', 'isFiltered');
+        $data = compact('products', 'filterProductVars', 'selectedFilter', 'isFiltered', 'pageName');
         return view('shop')->with($data);
     }
 

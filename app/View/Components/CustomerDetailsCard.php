@@ -16,14 +16,13 @@ class CustomerDetailsCard extends Component
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //$this->name = $data['selectedFilter'];
-        $this->name = 'David Kent';
-        $this->pastOrderCount = 10;
-        $this->email = 'david89@gmail.com';
-        $this->shippingAddress = '180 North King Street, Northhampton MA 1060';
-        $this->billingAddress = '180 North King Street, Northhampton MA 1060';
+        $this->name = $data['name'];
+        $this->pastOrderCount = $data['pastOrderCount'];
+        $this->email = $data['email'];
+        $this->shippingAddress = $data['shippingAddress'];
+        $this->billingAddress = $data['billingAddress'];
     }
 
     /**
