@@ -26,18 +26,16 @@ Route::get('/orderdetails/{orderNo}', function ($orderNo) {
     return OrderController::orderDetails($orderNo);
 })->middleware(['auth'])->name('orderdetails');
 
+Route::get('/usersetting', function () {
+    return view('usersetting');
+})->middleware(['auth'])->name('usersetting');
+
 
 Route::get('/orders', function () {
     return OrderController::index();
 })->middleware(['auth'])->name('orders');
 
-Route::get('/shop', function (Request $request) {
-    return ProductController::shop($request);
-});
-
-Route::get('/shop/filtered', function (Request $request) {
-    return ProductController::filteredShop($request);
-});
+Route::get('/shop', [ProductController::class, 'shop']);
 
 require __DIR__ . '/auth.php';
 
@@ -47,8 +45,4 @@ Route::get('updateModels/{brand}', function ($brand) {
 
 Route::get('updateSpecifications/{brand}/{specs}', function ($brand, $specs) {
     return ProductController::getSpecifications($brand, $specs);
-});
-
-Route::get('product/{query}', function ($query) {
-    return ProductController::product($query);
 });
