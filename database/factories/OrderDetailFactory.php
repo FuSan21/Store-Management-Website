@@ -18,7 +18,7 @@ class OrderDetailFactory extends Factory
         return [
             'order_id' => $this->faker->randomElement(Order::all())['id'],
             'bmuk_no' => $this->faker->randomElement(Product::all())['bmuk_no'],
-            'quantity' => $this->faker->randomNumber(),
+            'quantity' => $this->faker->randomDigitNotNull(),
         ];
     }
 }

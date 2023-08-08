@@ -22,6 +22,14 @@ Route::get('/dashboard', function () {
     return view('dashboard')->with('pageName', 'Dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/usersetting', function () {
+    return view('usersetting');
+})->middleware(['auth'])->name('usersetting');
+
+Route::get('/wishlist', function () {
+    return view('wishlist')->with('pageName', 'Wishlist');
+})->middleware(['auth'])->name('wishlist');
+
 Route::get('/orderdetails/{orderNo}', function ($orderNo) {
     return OrderController::orderDetails($orderNo);
 })->middleware(['auth'])->name('orderdetails');
