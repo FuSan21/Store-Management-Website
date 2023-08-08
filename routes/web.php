@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\DashboardController;
 use Dotenv\Util\Str;
 use Illuminate\Http\Request;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +21,20 @@ use Illuminate\Http\Request;
 
 Route::get('/', [ProductController::class, 'index']);
 Route::get('/dashboard', function () {
-    return view('dashboard')->with('pageName', 'Dashboard');
+    return DashboardController::index();
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/usersetting', function () {
-    return view('usersetting');
+    return DashboardController::userSettings();
 })->middleware(['auth'])->name('usersetting');
+
+Route::get('/updateShippingAddress', function (Request $request) {
+    return DashboardController::updateShippingAddress($request);
+})->middleware(['auth']);
+
+Route::get('/updateBillingAddress', function (Request $request) {
+    return DashboardController::updateBillingAddress($request);
+})->middleware(['auth']);
 
 Route::get('/wishlist', function () {
     return view('wishlist')->with('pageName', 'Wishlist');
@@ -40,12 +50,12 @@ Route::get('/orders', function () {
 })->middleware(['auth'])->name('orders');
 
 Route::get('/shop', function (Request $request) {
-    return ProductController::shop($request);
+    return ProductController::shop($request)->name('shop');
 });
 
 Route::get('/shop/filtered', function (Request $request) {
     return ProductController::filteredShop($request);
-});
+})->name('filteredShop');
 
 require __DIR__ . '/auth.php';
 

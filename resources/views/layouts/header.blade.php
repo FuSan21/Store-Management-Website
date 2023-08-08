@@ -8,8 +8,8 @@
     <TITLE>{{ $pageName }}</TITLE>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
+    <link href="{{ asset('/nunito_wght@400;600;700&display=swap.css') }}" rel="stylesheet">
+    <link href="{{ asset('/flowbite.min.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('/font-awesome_6.4.0_css_all.min.css') }}" />
 
     <!-- Styles -->
@@ -69,15 +69,15 @@
                         <ul class="py-2" aria-labelledby="user-menu-button">
                             @auth
                                 <li>
-                                    <a href="{{ url('/dashboard') }}"
+                                    <a href="{{ route('dashboard') }}"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
                                 </li>
                                 <li>
-                                    <a href="#"
+                                    <a href="{{ route('usersetting') }}"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/orders') }}"
+                                    <a href="{{ route('orders') }}"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Orders</a>
                                 </li>
                                 <li>
