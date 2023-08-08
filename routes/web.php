@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
+use Dotenv\Util\Str;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +19,11 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', [ProductController::class, 'index']);
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard')->with('pageName', 'Dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/orderdetails', function () {
-    return view('orderdetails');
+Route::get('/orderdetails/{orderNo}', function ($orderNo) {
+    return OrderController::orderDetails($orderNo);
 })->middleware(['auth'])->name('orderdetails');
 
 Route::get('/usersetting', function () {
@@ -29,7 +32,7 @@ Route::get('/usersetting', function () {
 
 
 Route::get('/orders', function () {
-    return view('orders');
+    return OrderController::index();
 })->middleware(['auth'])->name('orders');
 
 Route::get('/shop', [ProductController::class, 'shop']);
