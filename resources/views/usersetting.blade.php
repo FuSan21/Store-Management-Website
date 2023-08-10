@@ -11,16 +11,7 @@
         <div class="bg-gray-100 w-full">
             <div class="container mx-auto p-6">
                 <h1 class="text-3xl font-bold mb-4">Customer Dashboard</h1>
-                <div class="flex space-x-4 mb-4">
-                    <div class="flex-1 bg-white rounded-lg p-4 shadow">
-                        <h2 class="text-lg font-semibold mb-2">Total Spending</h2>
-                        <p class="text-gray-600">${{ $totalOrderCost }}</p>
-                    </div>
-                    <div class="flex-1 bg-white rounded-lg p-4 shadow">
-                        <h2 class="text-lg font-semibold mb-2">Total Orders</h2>
-                        <p class="text-gray-600">{{ $orderCount }}</p>
-                    </div>
-                </div>
+                <x-customer-at-a-glance :totalOrderCost="$totalOrderCost" :orderCount="$orderCount" :cart="$orderCount" :wishlist="$orderCount" />
 
                 <div class="bg-gray-100">
                     <div class="container mx-auto p-8">

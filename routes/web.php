@@ -4,9 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DashboardController;
-use Dotenv\Util\Str;
 use Illuminate\Http\Request;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +38,10 @@ Route::get('/wishlist', function () {
     return view('wishlist')->with('pageName', 'Wishlist');
 })->middleware(['auth'])->name('wishlist');
 
+Route::get('/cart', function () {
+    return view('cart')->with('pageName', 'Cart');
+})->middleware(['auth'])->name('cart');
+
 Route::get('/orderdetails/{orderNo}', function ($orderNo) {
     return OrderController::orderDetails($orderNo);
 })->middleware(['auth'])->name('orderdetails');
@@ -50,8 +52,8 @@ Route::get('/orders', function () {
 })->middleware(['auth'])->name('orders');
 
 Route::get('/shop', function (Request $request) {
-    return ProductController::shop($request)->name('shop');
-});
+    return ProductController::shop($request);
+})->name('shop');
 
 Route::get('/shop/filtered', function (Request $request) {
     return ProductController::filteredShop($request);
