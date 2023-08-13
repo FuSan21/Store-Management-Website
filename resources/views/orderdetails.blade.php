@@ -72,13 +72,13 @@
                             </div> --}}
                             <div class="flex justify-between items-center w-full">
                                 <p class="text-base dark:text-white leading-4 text-gray-800">Shipping</p>
-                                <p class="text-base dark:text-gray-300 leading-4 text-gray-600">$8.00</p>
+                                <p class="text-base dark:text-gray-300 leading-4 text-gray-600">$10.00</p>
                             </div>
                         </div>
                         <div class="flex justify-between items-center w-full">
                             <p class="text-base dark:text-white font-semibold leading-4 text-gray-800">Total</p>
                             <p class="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600">
-                                ${{ $total_order_price + 8 }}</p>
+                                ${{ $total_order_price + 10 }}</p>
                         </div>
                     </div>
                     <div

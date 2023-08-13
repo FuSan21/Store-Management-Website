@@ -8,7 +8,7 @@
                 title="view product">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </a>
-            <a href="#"
+            <a href="{{ route('wishlist.switch') }}?bmukNo={{ $bmuk_no }}"
                 class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
                 title="add to wishlist">
                 <i class="fa-solid fa-heart"></i>
@@ -37,7 +37,7 @@
         </div>
     </div>
     @auth
-        <a href="#"
+        <a href="{{ route('cart.add') }}?bmukNo={{ $bmuk_no }}"
             class="block w-full py-1 text-center text-white bg-rose-500 border rounded-b hover:bg-transparent hover:text-rose-500 transition">Add
             to cart</a>
     @endauth

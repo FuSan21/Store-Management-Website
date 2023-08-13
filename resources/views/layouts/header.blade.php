@@ -28,10 +28,19 @@
                     <span class="self-center text-2xl font-semibold whitespace-nowrap">Vehicle Accessory Shop</span>
                 </a>
 
-                <div class="flex items-center md:order-2">
+                <div class="flex items-center md:order-3">
                     <button type="button"
                         class="flex mr-3 text-sm bg-slate-400 rounded-full focus:ring-4 focus:ring-gray-300"
-                        id="cart-button">
+                        id="cart-button" onclick="window.location.href='{{ route('wishlist') }}'">
+                        <span class="sr-only">Open Wishlist</span>
+                        <!-- component -->
+                        <div class="text-l w-10 h-10 p-2">
+                            <i class="fa-solid fa-heart fa-xl"></i>
+                        </div>
+                    </button>
+                    <button type="button"
+                        class="flex mr-3 text-sm bg-slate-400 rounded-full focus:ring-4 focus:ring-gray-300"
+                        id="cart-button" onclick="window.location.href='{{ route('cart') }}'">
                         <span class="sr-only">Open Cart</span>
                         <!-- component -->
                         <div class="text-l w-10 h-10 p-2">
@@ -124,7 +133,7 @@
                                 aria-current="page">Home</a>
                         </li>
                         <li>
-                            <a href="{{ url('/shop') }}"
+                            <a href="{{ route('shop') }}"
                                 class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Shop</a>
                         </li>
                         <li>

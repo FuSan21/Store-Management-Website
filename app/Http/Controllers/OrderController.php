@@ -11,7 +11,7 @@ class OrderController extends Controller
     public static function index()
     {
         $pageName = 'Orders List';
-        $orders = ModelsOrder::where('user_id', auth()->user()->id)->with('orderDetails')->paginate(10);
+        $orders = ModelsOrder::where('user_id', auth()->user()->id)->with('orderDetails')->orderBy('created_at', 'desc')->paginate(10);
         $data = compact('orders', 'pageName');
         return view('orders')->with($data);
     }

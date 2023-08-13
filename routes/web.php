@@ -35,12 +35,32 @@ Route::get('/updateBillingAddress', function (Request $request) {
 })->middleware(['auth']);
 
 Route::get('/wishlist', function () {
-    return view('wishlist')->with('pageName', 'Wishlist');
+    return DashboardController::wishlist();
 })->middleware(['auth'])->name('wishlist');
 
+Route::get('/wishlist/addtowishlist', function (Request $request) {
+    return DashboardController::switchWishlist($request);
+})->middleware(['auth'])->name('wishlist.switch');
+
 Route::get('/cart', function () {
-    return view('cart')->with('pageName', 'Cart');
+    return DashboardController::cart();
 })->middleware(['auth'])->name('cart');
+
+Route::get('/cart/addtocart', function (Request $request) {
+    return DashboardController::addToCart($request);
+})->middleware(['auth'])->name('cart.add');
+
+Route::get('/cart/removefromcart', function (Request $request) {
+    return DashboardController::removeFromCart($request);
+})->middleware(['auth'])->name('cart.remove');
+
+Route::get('/cart/updatecart', function (Request $request) {
+    return DashboardController::updateCart($request);
+})->middleware(['auth'])->name('cart.update');
+
+Route::get('/checkout', function (Request $request) {
+    return DashboardController::checkout($request);
+})->middleware(['auth'])->name('checkout');
 
 Route::get('/orderdetails/{orderNo}', function ($orderNo) {
     return OrderController::orderDetails($orderNo);
