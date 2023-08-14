@@ -68,7 +68,7 @@ class ProductController extends Controller
         return view('shop')->with($data);
     }
 
-    public static function filteredShop($request)
+    public static function filteredShop(Request $request)
     {
         $pageName = 'Shop';
         $brands = ModelsProduct::all()->unique('car_brand')->pluck('car_brand');

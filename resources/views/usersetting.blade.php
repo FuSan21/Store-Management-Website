@@ -54,7 +54,7 @@
                     <div class="popup pb-32" id="popup1">
                         <div class="popup-content">
                             <h2 class="text-lg font-semibold mb-4">Edit Shipping Address</h2>
-                            <form class="space-y-4" action="/updateShippingAddress" method="GET">
+                            <form class="space-y-4" action="{{ route('updateShippingAddress') }}">
                                 <div>
                                     <label class="block font-semibold" for="newAddress">New Address</label>
                                     <textarea class="w-full border rounded px-3 py-2" id="newAddress" name="newAddress" rows="4" cols="50"
@@ -77,7 +77,7 @@
                     <div class="popup pb-32" id="popup2">
                         <div class="popup-content">
                             <h2 class="text-lg font-semibold mb-4">Edit Billing Address</h2>
-                            <form class="space-y-4" action="/updateBillingAddress" method="GET">
+                            <form class="space-y-4" action="{{ route('updateBillingAddress') }}">
                                 <div>
                                     <label class="block font-semibold" for="newAddress">New Address</label>
                                     <textarea class="w-full border rounded px-3 py-2" id="newAddress" name="newAddress" rows="4" cols="50"

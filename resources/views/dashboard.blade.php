@@ -44,7 +44,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="/orders"
+                    <a href="{{ route('orders') }}"
                         class="hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 p-5 w-full bg-gray-800 text-base text-center font-medium leading-4 text-white rounded-lg">Show
                         All Orders</a>
 

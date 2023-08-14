@@ -9,7 +9,7 @@
                 # {{ $orders->id }}
             </h1>
             <p class="text-base dark:text-gray-300 font-medium leading-6 text-gray-600">{{ $orders->created_at }}</p>
-            <a href="/orders"
+            <a href="{{ route('orders') }}"
                 class="hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 p-5 w-96 bg-gray-800 text-base text-center font-medium leading-4 text-white rounded-lg">Back
                 To Order List</a>
         </div>
@@ -91,7 +91,8 @@
                                 </div>
                                 <div class="flex flex-col justify-start items-center">
                                     <p class="text-lg leading-6 dark:text-white font-semibold text-gray-800">
-                                        {{ $orders->shipping_method }}<br /><span class="font-normal">Delivery with 24
+                                        {{ $orders->shipping_method }} ({{ $orders->payment_method }})<br /><span
+                                            class="font-normal">Delivery with 24
                                             Hours</span></p>
                                 </div>
                             </div>

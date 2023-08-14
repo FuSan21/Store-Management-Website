@@ -94,7 +94,7 @@
                                                 </span>
                                             </td>
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <a href="/orderdetails/{{ $order->id }}"
+                                                <a href="{{ route('orderdetails', ['orderNo' => $order->id]) }}"
                                                     class="hover:bg-black dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 p-5 w-96 md:w-full bg-gray-800 text-base font-medium leading-4 text-white rounded-lg">View</a>
                                             </td>
                                         </tr>
