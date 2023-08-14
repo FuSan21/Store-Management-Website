@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminDashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
@@ -50,6 +51,16 @@ Route::prefix('customer')->middleware('auth')->group(
             function () {
                 Route::get('orders', 'index')->name('orders');
                 Route::get('orderdetails/{orderNo}', 'orderDetails')->name('orderdetails');
+            }
+        );
+    }
+);
+
+Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(
+    function () {
+        Route::controller(AdminDashboardController::class)->group(
+            function () {
+                Route::get('admin-dashboard', 'index')->name('admin-dashboard');
             }
         );
     }
