@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminDashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DashboardController;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 /*
@@ -17,78 +19,64 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', [ProductController::class, 'index']);
-Route::get('/dashboard', function () {
-    return DashboardController::index();
-})->middleware(['auth'])->name('dashboard');
+Route::controller(ProductController::class)->group(
+    function () {
+        Route::get('/', 'index')->name('home');
+        Route::get('shop', 'shop')->name('shop');
+        Route::get('shop/filtered', 'filteredShop')->name('filteredShop');
+        Route::get('updateModels/{brand}', 'getModels')->name('updateModels');
+        Route::get('updateSpecifications/{brand}/{specs}', 'getSpecifications')->name('updateSpecifications');
+        Route::get('product/{query}', 'product')->name('product');
+    }
+);
 
-Route::get('/usersetting', function () {
-    return DashboardController::userSettings();
-})->middleware(['auth'])->name('usersetting');
+Route::prefix('customer')->middleware('auth')->group(
+    function () {
+        Route::controller(DashboardController::class)->group(
+            function () {
+                Route::get('dashboard', 'index')->name('dashboard');
+                Route::get('wishlist', 'wishlist')->name('wishlist');
+                Route::get('cart', 'cart')->name('cart');
+                Route::get('checkout', 'checkout')->name('checkout');
+                Route::get('usersetting', 'userSettings')->name('usersetting');
+                Route::get('updateShippingAddress', 'updateShippingAddress')->name('updateShippingAddress');
+                Route::get('updateBillingAddress', 'updateBillingAddress')->name('updateBillingAddress');
+                Route::get('wishlist/addtowishlist', 'switchWishlist')->name('wishlist.switch');
+                Route::get('cart/addtocart', 'addToCart')->name('cart.add');
+                Route::get('cart/removefromcart', 'removeFromCart')->name('cart.remove');
+                Route::get('cart/updatecart', 'updateCart')->name('cart.update');
+            }
+        );
+        Route::controller(OrderController::class)->group(
+            function () {
+                Route::get('orders', 'index')->name('orders');
+                Route::get('orderdetails/{orderNo}', 'orderDetails')->name('orderdetails');
+                Route::get('review', 'reviewOrder')->name('reviewOrder');
+                Route::get('submitreview', 'submitReview')->name('submitReview');
+            }
+        );
+    }
+);
 
-Route::get('/updateShippingAddress', function (Request $request) {
-    return DashboardController::updateShippingAddress($request);
-})->middleware(['auth']);
-
-Route::get('/updateBillingAddress', function (Request $request) {
-    return DashboardController::updateBillingAddress($request);
-})->middleware(['auth']);
-
-Route::get('/wishlist', function () {
-    return DashboardController::wishlist();
-})->middleware(['auth'])->name('wishlist');
-
-Route::get('/wishlist/addtowishlist', function (Request $request) {
-    return DashboardController::switchWishlist($request);
-})->middleware(['auth'])->name('wishlist.switch');
-
-Route::get('/cart', function () {
-    return DashboardController::cart();
-})->middleware(['auth'])->name('cart');
-
-Route::get('/cart/addtocart', function (Request $request) {
-    return DashboardController::addToCart($request);
-})->middleware(['auth'])->name('cart.add');
-
-Route::get('/cart/removefromcart', function (Request $request) {
-    return DashboardController::removeFromCart($request);
-})->middleware(['auth'])->name('cart.remove');
-
-Route::get('/cart/updatecart', function (Request $request) {
-    return DashboardController::updateCart($request);
-})->middleware(['auth'])->name('cart.update');
-
-Route::get('/checkout', function (Request $request) {
-    return DashboardController::checkout($request);
-})->middleware(['auth'])->name('checkout');
-
-Route::get('/orderdetails/{orderNo}', function ($orderNo) {
-    return OrderController::orderDetails($orderNo);
-})->middleware(['auth'])->name('orderdetails');
-
-
-Route::get('/orders', function () {
-    return OrderController::index();
-})->middleware(['auth'])->name('orders');
-
-Route::get('/shop', function (Request $request) {
-    return ProductController::shop($request);
-})->name('shop');
-
-Route::get('/shop/filtered', function (Request $request) {
-    return ProductController::filteredShop($request);
-})->name('filteredShop');
+Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(
+    function () {
+        Route::controller(AdminDashboardController::class)->group(
+            function () {
+                Route::get('admin-dashboard', 'index')->name('admin-dashboard');
+                Route::get('updateOrderStatus', 'updateOrderStatus')->name('updateOrderStatus');
+                Route::get('orderdetails/{orderNo}', 'orderDetails')->name('adminOrderdetails');
+                Route::get('adminproductlist', 'productList')->name('adminProductList');
+                Route::get('adminproductlist/addproduct', 'addProduct')->name('addProduct');
+                Route::get('adminproductlist/addproduct/submit', 'addProductSubmit')->name('addProduct.submit');
+                Route::get('adminproductlist/editproduct', 'editProduct')->name('editProduct');
+                Route::get('adminproductlist/editproduct/submit', 'editProductSubmit')->name('editProduct.submit');
+                Route::get('adminproductlist/deleteproduct', 'deleteProduct')->name('deleteProduct');
+                Route::get('admincustomerlist', 'customerList')->name('adminCustomerList');
+                Route::get('admincustomerlist/verifycustomer', 'verifyCustomer')->name('verifycustomer');
+                Route::get('admincustomerlist/customerpastorders/{user_id}', 'customerPastOrders')->name('customerpastorders');
+            }
+        );
+    }
+);
 
 require __DIR__ . '/auth.php';
-
-Route::get('updateModels/{brand}', function ($brand) {
-    return ProductController::getModels($brand);
-});
-
-Route::get('updateSpecifications/{brand}/{specs}', function ($brand, $specs) {
-    return ProductController::getSpecifications($brand, $specs);
-});
-
-Route::get('product/{query}', function ($query) {
-    return ProductController::product($query);
-});
