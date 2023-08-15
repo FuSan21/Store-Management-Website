@@ -33,7 +33,7 @@
                     <span><i class="fa-solid fa-star"></i></span>
                 @endfor
             </div>
-            <div class="text-xs text-gray-500 ml-3">(150)</div>
+            <div class="text-xs text-gray-500 ml-3">({{ $review_count }})</div>
         </div>
     </div>
     @auth

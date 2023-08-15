@@ -10,4 +10,9 @@ class Product extends Model
     use HasFactory;
     protected $table = "products";
     protected $primarykey = "bmuk_no";
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'product_id', 'bmuk_no');
+    }
 }
