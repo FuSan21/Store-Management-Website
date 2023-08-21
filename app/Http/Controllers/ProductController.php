@@ -24,6 +24,20 @@ class ProductController extends Controller
         return view('welcome')->with($data);
     }
 
+    public static function aboutUs()
+    {
+        $pageName = 'About Us';
+        $data = compact('pageName');
+        return view('aboutUs')->with($data);
+    }
+
+    public static function contactUs()
+    {
+        $pageName = 'Contact Us';
+        $data = compact('pageName');
+        return view('contactUs')->with($data);
+    }
+
     public static function shop(Request $request)
     {
         $pageName = 'Shop';
@@ -56,7 +70,7 @@ class ProductController extends Controller
 
         // search funtion
         if ($request->searchQuery) {
-            $products = ModelsProduct::with('reviews')->where('bmuk_no', $request->searchQuery)->orderBy('bmuk_no', 'asc')->paginate(20)->withQueryString();
+            $products = ModelsProduct::with('reviews')->where('bmuk_no', $request->searchQuery)->orWhere('collection', 'like', '%' . $request->searchQuery . '%')->orWhere('filter_type', 'like', '%' . $request->searchQuery . '%')->orWhere('car_brand', 'like', '%' . $request->searchQuery . '%')->orWhere('model', 'like', '%' . $request->searchQuery . '%')->orderBy('bmuk_no', 'asc')->paginate(20)->withQueryString();
         }
         $sortMode = $request->sortMode ?? 1;
         $brands = ModelsProduct::all()->unique('car_brand')->pluck('car_brand');

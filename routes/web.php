@@ -27,6 +27,8 @@ Route::controller(ProductController::class)->group(
         Route::get('updateModels/{brand}', 'getModels')->name('updateModels');
         Route::get('updateSpecifications/{brand}/{specs}', 'getSpecifications')->name('updateSpecifications');
         Route::get('product/{query}', 'product')->name('product');
+        Route::get('about-us', 'aboutUs')->name('aboutUs');
+        Route::get('contact-us', 'contactUs')->name('contactUs');
     }
 );
 
