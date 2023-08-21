@@ -49,11 +49,11 @@
                 </div>
 
                 <div class="mt-6 flex gap-3 border-b border-gray-200 pb-5 pt-5">
-                    <a href="#"
+                    <a href="{{ route('cart.add') }}?bmukNo={{ $productDetails['bmuk_no'] }}"
                         class="bg-primary border border-primary bg-red-600 text-white px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:bg-transparent hover:text-black transition">
                         <i class="fa-solid fa-cart-shopping fa-xl"></i> Add to cart
                     </a>
-                    <a href="#"
+                    <a href="{{ route('wishlist.switch') }}?bmukNo={{ $productDetails['bmuk_no'] }}"
                         class="border border-gray-300 text-red-600 px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:text-black transition">
                         <i class="fa-solid fa-star fa-xl"></i> Favorite
                     </a>
