@@ -13,6 +13,10 @@
 
 Now you should be able to access the website from previous `php artisan serve` command. 1st user from database is an admin. All demo users has password set to `password`
 
+## Demo Page
+[## Demo link](https://demo1.fusan.live/)
+Admin Creds: shyanne.morar@example.org:password
+User Creds: waters.sarah@example.org:password
 
 ## Screenshots
 
