@@ -6,18 +6,34 @@
     },
     "routes": [
         {
-            "src": "/(.*)",
-            "dest": "/api/index.php"
+            "src": "/font-awesome_6.4.0_css_all.min.css",
+            "dest": "public/font-awesome_6.4.0_css_all.min.css"
+        },
+        {
+            "src": "/flowbite.min.css",
+            "dest": "public/flowbite.min.css"
+        },
+        {
+            "src": "/css/plain.css",
+            "dest": "public/css/plain.css"
+        },
+        {
+            "src": "/css/app.css",
+            "dest": "public/css/app.css"
         },
         {
             "src": "/(css|js)/(.*)",
             "dest": "public/$1/$2"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.php"
         }
     ],
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://yourproductionurl.com",
+        "APP_URL": "https://demo1.fusan.live",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
