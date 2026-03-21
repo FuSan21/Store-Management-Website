@@ -2,26 +2,34 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Order;
-use App\Models\User;
 use App\Models\Product;
+use App\Models\Review;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends Factory<Review>
+ */
 class ReviewFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
+    public const COMMENTS = [
+        'Exact fit, the gasket seated first time.',
+        'Same part number as the one the workshop used, half the price.',
+        'Arrived in two days, well packed.',
+        'Fitment list was right for my engine. Will reorder at the next service.',
+        'Good quality media, noticeably cleaner cabin air.',
+        'Box was a little dented but the filter itself was perfect.',
+    ];
+
+    public function definition(): array
     {
         return [
-            "user_id" => $this->faker->randomElement(User::all())['id'],
-            "product_id" => $this->faker->randomElement(Product::all())['bmuk_no'],
-            "order_id" => $this->faker->randomElement(Order::all())['id'],
-            "rating" => $this->faker->numberBetween(1, 5),
-            "comment" => $this->faker->paragraph(1),
+            'user_id' => User::factory(),
+            'product_id' => Product::factory(),
+            'order_id' => Order::factory(),
+            'rating' => fake()->numberBetween(3, 5),
+            'comment' => fake()->randomElement(self::COMMENTS),
         ];
     }
 }

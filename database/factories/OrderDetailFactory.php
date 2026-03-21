@@ -2,23 +2,23 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Models\Product;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends Factory<OrderDetail>
+ */
 class OrderDetailFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
+    public function definition(): array
     {
         return [
-            'order_id' => $this->faker->randomElement(Order::all())['id'],
-            'bmuk_no' => $this->faker->randomElement(Product::all())['bmuk_no'],
-            'quantity' => $this->faker->randomDigitNotNull(),
+            'order_id' => Order::factory(),
+            'bmuk_no' => Product::factory(),
+            'quantity' => fake()->numberBetween(1, 3),
+            'unit_price' => fn (array $attributes) => Product::find($attributes['bmuk_no'])?->price ?? 1000,
         ];
     }
 }

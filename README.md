@@ -1,61 +1,96 @@
-## Set up the project
-- Clone the repo
-- `composer install`
-- `npm install laravel-mix --save-dev`
-- `cp .env.example .env`
-- `php artisan key:generate`
-- create a database
-- update the database info in .env
-- run `npm run watch` and `php artisan serve` in 2 different terminal (dont close these 2)
-- `php artisan optimize`
-- `php artisan migrate`
-- run `php artisan db:seed` 3-4 times
+# Vehicle Accessory Shop
 
-Now you should be able to access the website from previous `php artisan serve` command. 1st user from database is an admin. All demo users has password set to `password`
+An online shop and store-management dashboard for car filters (oil, air, fuel and cabin) in Bangladesh.
+Customers find the filter that fits their car, pay by bKash, Nagad, card or cash on delivery, and follow the
+order to their door. The store team runs orders, stock, customers and coupons from the admin.
 
-## Demo Page
-[## Demo link](https://demo1.fusan.live/)<br>
-### Admin Creds:<br>
-shyanne.morar@example.org<br>
-password<br>
-### User Creds:<br>
-waters.sarah@example.org<br>
-password<br>
+**Stack:** Laravel 13 · PHP 8.4+ · Livewire 4 (with Alpine) · Tailwind CSS 4 · Vite · Chart.js · Pest
 
-## Screenshots
+## Features
 
-### Guest
-![Screenshot_14-3-2024_31017_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/1e61dcd0-ad0e-4e96-be71-bdcfbe183a44)
-![Screenshot_14-3-2024_51315_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/c9ee5153-2cb9-4409-891e-30a16627d6c9)
-![Screenshot_14-3-2024_5425_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/e074b249-1773-448a-ad5a-7b32a0435800)
-<br>
-<br>
-<br>
-<br>
-<br>
-### Customer
-![Screenshot_14-3-2024_51612_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/172eefe0-e82a-4a76-81c8-d06e4dd00adb)
-![Screenshot_14-3-2024_51637_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/d0c85e52-a889-4335-a7d6-4a306f7590a3)
-![Screenshot_14-3-2024_51724_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/44681308-4c05-4868-ad3f-c5881f8432c5)
-![Screenshot_14-3-2024_51743_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/bf4d1134-3d34-4e19-97f6-2f1154c160d6)
-![Screenshot_14-3-2024_5189_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/42c56701-2511-4d65-ac07-de0253eb8568)
-![Screenshot_14-3-2024_51835_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/748800d0-9941-4e38-a2fc-1227bc8c7c23)
-![Screenshot_14-3-2024_51851_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/7e7b579a-d9b1-4b74-9042-543579531c07)
-![Screenshot_14-3-2024_52017_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/646cf22f-b3fa-4b0d-81d0-11325c0579fc)
-![Screenshot_14-3-2024_52219_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/529e38cb-e8e8-4f88-a480-e7f282a7b9c9)
-![Screenshot_14-3-2024_52234_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/64a77f6d-ea02-4c35-a1cc-90afdf5ef8ae)
-![Screenshot_14-3-2024_51531_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/6c987c5f-c8f3-46f5-917c-c0c0b284aed4)
-<br>
-<br>
-<br>
-<br>
-<br> 
-### Admin
-![Screenshot_14-3-2024_52511_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/47bdb767-a8e0-441b-80f3-d872568a928e)
-![Screenshot_14-3-2024_52535_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/3ca50364-1ee0-4bb6-beb8-b8fd54a20d88)
-![Screenshot_14-3-2024_52548_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/aa462675-dfa4-4e8d-8f6b-56059000e651)
-![Screenshot_14-3-2024_5262_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/f041d223-4db7-4d60-aab0-01681a347f1a)
-![Screenshot_14-3-2024_52630_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/496a8a2d-b400-470c-8bfb-6ca349a43a4d)
-![Screenshot_14-3-2024_52652_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/2bdc5d61-efe2-466b-acc4-6c8a57ac4c48)
-![Screenshot_14-3-2024_52716_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/1fc4609b-3767-4504-b300-1a56635b0a86)
-![Screenshot_14-3-2024_52342_127 0 0 1](https://github.com/FuSan21/Store-Management-Website/assets/35169687/473212ec-e2b6-4daf-978d-0e88230d6d24)
+**Shop**
+- Vehicle finder: make → model → engine and years, with a live count of matching filters
+- Shop with URL-bound filters (part, make, model, engine, filter type, price, in stock), sorting and chips
+- Live search suggestions in the header (brand, model, BMUK, Euro and OEM numbers)
+- Product pages with gallery, fitment table, part numbers, rating breakdown, related and recently viewed products
+- Guest cart that merges into the account on sign in; quantities capped at the stock on hand
+- Discount codes (percentage or fixed, minimum spend, usage limit, start and end dates)
+- Courier choice with per-courier rates and free delivery over a threshold
+- Light, dark and match-device themes
+
+**Customer account**
+- Order list with status filter, order timeline, cancel while unpaid, PDF invoice
+- Email on order placed and on every status change
+- Address book with default delivery and billing addresses
+- Reviews only from delivered orders, once per item
+- Wishlist, profile, password change, account deletion
+
+**Admin**
+- Dashboard: revenue per day (7/30/90 days), paid orders, average order, new customers with change vs the previous period,
+  orders by status, top products, low-stock list, orders waiting on you
+- Orders: search, status and date filters, guarded status changes with notes, full history, CSV export
+- Products: create/edit with fitment rows and gallery, soft delete, sortable list, CSV export
+- Inventory: stock ledger for every sale, delivery, cancellation and correction; reorder list; stock value
+- Customers: spend and order counts, manual verification, CSV export
+- Coupons: create, schedule, cap and retire codes
+
+**Security and quality**
+- Every state change is a POST/PATCH/PUT/DELETE behind CSRF protection (the old GET links are gone)
+- Policies stop customers opening other customers' orders, invoices and addresses
+- Form requests validate every input (Bangladeshi mobile numbers, fitment years, coupon values)
+- Rate limits on sign in, checkout, coupons, reviews and the contact form; honeypot on the contact form
+- Stock is taken under row locks inside a transaction, and order lines keep the price they sold at
+- CSV exports neutralise spreadsheet formulas
+- 103 Pest tests
+
+## Set up
+
+Requires PHP 8.4+ (with `fileinfo`, `pdo_sqlite` or `pdo_mysql`, `mbstring`, `openssl`), Composer and Node 22+.
+
+```bash
+git clone https://github.com/FuSan21/Store-Management-Website.git
+cd Store-Management-Website
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+touch database/database.sqlite        # or set DB_* for MySQL in .env
+php artisan migrate --seed
+composer run dev                       # or: php artisan serve + npm run dev
+```
+
+Demo accounts (password `password`):
+
+| Role | Email |
+|---|---|
+| Admin | admin@example.com |
+| Customer | customer@example.com |
+
+Discount codes in the demo data: `WELCOME10` (10% over ৳1,000) and `SERVICE500` (৳500 off over ৳4,000).
+
+Run the tests with `php artisan test` (or `vendor/bin/pest`).
+
+## Upgrading an existing Laravel 8 database
+
+The new migrations are additive. Run `php artisan migrate` against the existing database and it will:
+
+- rename `password_resets` to `password_reset_tokens` and add the `sessions` table
+- add stock, gallery, description and featured flags to products (existing products start with 25 in stock)
+- add subtotal, discount, delivery cost, coupon, phone and notes to orders, store each order line's price,
+  and turn the status column into a string so orders can be marked **Shipped**
+- create order status history (one entry per existing order), coupons, the address book (filled from each
+  user's old shipping and billing address) and the stock ledger
+
+Back up the database first.
+
+## Deploying on Vercel
+
+`vercel.json` builds the assets with `npm run build` and serves PHP through `vercel-php@0.9.0` (PHP 8.5).
+Set `APP_KEY`, `DB_*` and `MAIL_*` in the project's environment variables. Rate limits use the database cache
+store, so run the migrations (which create the `cache` table) before the first deploy.
+
+## Product pictures
+
+The product pictures in `public/images/products` are studio renders of a generic oil, air, fuel and cabin filter,
+used for any product without its own picture. Replace them, or set each product's picture URL in the admin,
+with photographs of the real stock.

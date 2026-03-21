@@ -1,0 +1,698 @@
+{
+ "id": "air-filter",
+ "name": "Panel air filter",
+ "label": "A panel engine air filter with cream pleated media in a black polyurethane frame",
+ "units": "mm",
+ "angle": -28,
+ "camera": {
+  "elev": 30
+ },
+ "turn": {
+  "mode": "still"
+ },
+ "materials": {
+  "media": {
+   "kind": "fabric",
+   "color": "#e8dfc6"
+  },
+  "frame": {
+   "kind": "rubber"
+  },
+  "lip": {
+   "kind": "paint",
+   "color": "accent",
+   "finish": "satin"
+  }
+ },
+ "supports": [
+  "three-quarter",
+  "top"
+ ],
+ "make": {
+  "variants": [
+   "three-quarter"
+  ],
+  "grounds": [
+   "light",
+   "dark"
+  ],
+  "px": 1000
+ },
+ "parts": [
+  {
+   "name": "frame front",
+   "type": "box",
+   "at": [
+    0,
+    20,
+    96
+   ],
+   "size": [
+    262,
+    40,
+    8
+   ],
+   "round": 2,
+   "mat": "frame"
+  },
+  {
+   "name": "frame back",
+   "type": "box",
+   "at": [
+    0,
+    20,
+    -96
+   ],
+   "size": [
+    262,
+    40,
+    8
+   ],
+   "round": 2,
+   "mat": "frame"
+  },
+  {
+   "name": "frame left",
+   "type": "box",
+   "at": [
+    -127,
+    20,
+    0
+   ],
+   "size": [
+    8,
+    40,
+    200
+   ],
+   "round": 2,
+   "mat": "frame"
+  },
+  {
+   "name": "frame right",
+   "type": "box",
+   "at": [
+    127,
+    20,
+    0
+   ],
+   "size": [
+    8,
+    40,
+    200
+   ],
+   "round": 2,
+   "mat": "frame"
+  },
+  {
+   "name": "lip front",
+   "type": "box",
+   "at": [
+    0,
+    41,
+    101
+   ],
+   "size": [
+    270,
+    3,
+    10
+   ],
+   "round": 1,
+   "mat": "lip"
+  },
+  {
+   "name": "lip back",
+   "type": "box",
+   "at": [
+    0,
+    41,
+    -101
+   ],
+   "size": [
+    270,
+    3,
+    10
+   ],
+   "round": 1,
+   "mat": "lip"
+  },
+  {
+   "name": "lip left",
+   "type": "box",
+   "at": [
+    -132,
+    41,
+    0
+   ],
+   "size": [
+    10,
+    3,
+    212
+   ],
+   "round": 1,
+   "mat": "lip"
+  },
+  {
+   "name": "lip right",
+   "type": "box",
+   "at": [
+    132,
+    41,
+    0
+   ],
+   "size": [
+    10,
+    3,
+    212
+   ],
+   "round": 1,
+   "mat": "lip"
+  },
+  {
+   "name": "pleat 0",
+   "type": "panel",
+   "at": [
+    -118.26923076923077,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 1",
+   "type": "panel",
+   "at": [
+    -108.8076923076923,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 2",
+   "type": "panel",
+   "at": [
+    -99.34615384615384,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 3",
+   "type": "panel",
+   "at": [
+    -89.88461538461539,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 4",
+   "type": "panel",
+   "at": [
+    -80.42307692307692,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 5",
+   "type": "panel",
+   "at": [
+    -70.96153846153845,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 6",
+   "type": "panel",
+   "at": [
+    -61.5,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 7",
+   "type": "panel",
+   "at": [
+    -52.03846153846153,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 8",
+   "type": "panel",
+   "at": [
+    -42.57692307692308,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 9",
+   "type": "panel",
+   "at": [
+    -33.11538461538461,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 10",
+   "type": "panel",
+   "at": [
+    -23.65384615384616,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 11",
+   "type": "panel",
+   "at": [
+    -14.192307692307693,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 12",
+   "type": "panel",
+   "at": [
+    -4.730769230769226,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 13",
+   "type": "panel",
+   "at": [
+    4.730769230769226,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 14",
+   "type": "panel",
+   "at": [
+    14.19230769230768,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 15",
+   "type": "panel",
+   "at": [
+    23.65384615384616,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 16",
+   "type": "panel",
+   "at": [
+    33.11538461538461,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 17",
+   "type": "panel",
+   "at": [
+    42.576923076923066,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 18",
+   "type": "panel",
+   "at": [
+    52.03846153846155,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 19",
+   "type": "panel",
+   "at": [
+    61.5,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 20",
+   "type": "panel",
+   "at": [
+    70.96153846153845,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 21",
+   "type": "panel",
+   "at": [
+    80.42307692307693,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 22",
+   "type": "panel",
+   "at": [
+    89.88461538461539,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 23",
+   "type": "panel",
+   "at": [
+    99.34615384615384,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 24",
+   "type": "panel",
+   "at": [
+    108.80769230769232,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 25",
+   "type": "panel",
+   "at": [
+    118.26923076923077,
+    20,
+    0
+   ],
+   "size": [
+    1.2,
+    36,
+    184
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  }
+ ],
+ "colors": [
+  {
+   "id": "red",
+   "name": "Signal red",
+   "accent": "#d92b21"
+  }
+ ]
+}

@@ -1,0 +1,710 @@
+{
+ "id": "cabin-filter",
+ "name": "Cabin air filter",
+ "label": "A white pleated cabin air filter with grey plastic side frames",
+ "units": "mm",
+ "angle": -30,
+ "camera": {
+  "elev": 32
+ },
+ "turn": {
+  "mode": "still"
+ },
+ "materials": {
+  "media": {
+   "kind": "fabric",
+   "color": "#f3f2ee"
+  },
+  "frame": {
+   "kind": "plastic",
+   "color": "#3a3c40"
+  }
+ },
+ "supports": [
+  "three-quarter",
+  "top"
+ ],
+ "make": {
+  "variants": [
+   "three-quarter"
+  ],
+  "grounds": [
+   "light",
+   "dark"
+  ],
+  "px": 1000
+ },
+ "parts": [
+  {
+   "name": "side front",
+   "type": "box",
+   "at": [
+    0,
+    15,
+    92
+   ],
+   "size": [
+    224,
+    30,
+    4
+   ],
+   "round": 1,
+   "mat": "frame"
+  },
+  {
+   "name": "side back",
+   "type": "box",
+   "at": [
+    0,
+    15,
+    -92
+   ],
+   "size": [
+    224,
+    30,
+    4
+   ],
+   "round": 1,
+   "mat": "frame"
+  },
+  {
+   "name": "end left",
+   "type": "box",
+   "at": [
+    -110,
+    15,
+    0
+   ],
+   "size": [
+    4,
+    30,
+    188
+   ],
+   "round": 1,
+   "mat": "media"
+  },
+  {
+   "name": "end right",
+   "type": "box",
+   "at": [
+    110,
+    15,
+    0
+   ],
+   "size": [
+    4,
+    30,
+    188
+   ],
+   "round": 1,
+   "mat": "media"
+  },
+  {
+   "name": "pleat 0",
+   "type": "panel",
+   "at": [
+    -104.4,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 1",
+   "type": "panel",
+   "at": [
+    -97.2,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 2",
+   "type": "panel",
+   "at": [
+    -90,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 3",
+   "type": "panel",
+   "at": [
+    -82.8,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 4",
+   "type": "panel",
+   "at": [
+    -75.6,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 5",
+   "type": "panel",
+   "at": [
+    -68.4,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 6",
+   "type": "panel",
+   "at": [
+    -61.2,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 7",
+   "type": "panel",
+   "at": [
+    -54,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 8",
+   "type": "panel",
+   "at": [
+    -46.8,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 9",
+   "type": "panel",
+   "at": [
+    -39.599999999999994,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 10",
+   "type": "panel",
+   "at": [
+    -32.400000000000006,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 11",
+   "type": "panel",
+   "at": [
+    -25.200000000000003,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 12",
+   "type": "panel",
+   "at": [
+    -18,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 13",
+   "type": "panel",
+   "at": [
+    -10.799999999999997,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 14",
+   "type": "panel",
+   "at": [
+    -3.5999999999999943,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 15",
+   "type": "panel",
+   "at": [
+    3.5999999999999943,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 16",
+   "type": "panel",
+   "at": [
+    10.799999999999997,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 17",
+   "type": "panel",
+   "at": [
+    18,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 18",
+   "type": "panel",
+   "at": [
+    25.19999999999999,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 19",
+   "type": "panel",
+   "at": [
+    32.400000000000006,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 20",
+   "type": "panel",
+   "at": [
+    39.599999999999994,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 21",
+   "type": "panel",
+   "at": [
+    46.80000000000001,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 22",
+   "type": "panel",
+   "at": [
+    54,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 23",
+   "type": "panel",
+   "at": [
+    61.19999999999999,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 24",
+   "type": "panel",
+   "at": [
+    68.4,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 25",
+   "type": "panel",
+   "at": [
+    75.6,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 26",
+   "type": "panel",
+   "at": [
+    82.80000000000001,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 27",
+   "type": "panel",
+   "at": [
+    90,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 28",
+   "type": "panel",
+   "at": [
+    97.19999999999999,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    -16
+   ],
+   "mat": "media"
+  },
+  {
+   "name": "pleat 29",
+   "type": "panel",
+   "at": [
+    104.4,
+    15,
+    0
+   ],
+   "size": [
+    1.2,
+    28,
+    180
+   ],
+   "rot": [
+    0,
+    0,
+    16
+   ],
+   "mat": "media"
+  }
+ ],
+ "colors": [
+  {
+   "id": "red",
+   "name": "Signal red",
+   "accent": "#d92b21"
+  }
+ ]
+}

@@ -1,0 +1,219 @@
+{
+ "id": "oil-filter",
+ "name": "Spin-on oil filter",
+ "label": "A red spin-on oil filter with its base plate and rubber gasket facing up",
+ "units": "mm",
+ "angle": -30,
+ "camera": {
+  "elev": 24
+ },
+ "turn": {
+  "mode": "still"
+ },
+ "materials": {
+  "body": {
+   "kind": "paint",
+   "color": "accent",
+   "finish": "gloss"
+  }
+ },
+ "supports": [
+  "three-quarter",
+  "side"
+ ],
+ "make": {
+  "variants": [
+   "three-quarter"
+  ],
+  "grounds": [
+   "light",
+   "dark"
+  ],
+  "px": 1000
+ },
+ "parts": [
+  {
+   "name": "body",
+   "type": "cylinder",
+   "at": [
+    0,
+    46,
+    0
+   ],
+   "axis": "y",
+   "r": 38,
+   "h": 92,
+   "round": 4,
+   "seams": [
+    -0.78,
+    0.86
+   ],
+   "mat": "body"
+  },
+  {
+   "name": "base plate",
+   "type": "cylinder",
+   "at": [
+    0,
+    93.5,
+    0
+   ],
+   "axis": "y",
+   "r": 36.5,
+   "h": 4,
+   "round": 1,
+   "mat": "alloy"
+  },
+  {
+   "name": "gasket",
+   "type": "torus",
+   "at": [
+    0,
+    96.2,
+    0
+   ],
+   "axis": "y",
+   "R": 30,
+   "r": 2.8,
+   "mat": "rubber"
+  },
+  {
+   "name": "thread boss",
+   "type": "cylinder",
+   "at": [
+    0,
+    96.4,
+    0
+   ],
+   "axis": "y",
+   "r": 11.5,
+   "h": 3.2,
+   "round": 0.6,
+   "mat": "steel"
+  },
+  {
+   "name": "bore",
+   "type": "cylinder",
+   "at": [
+    0,
+    97.4,
+    0
+   ],
+   "axis": "y",
+   "r": 8,
+   "h": 1.6,
+   "mat": "black"
+  },
+  {
+   "name": "inlet 0",
+   "type": "cylinder",
+   "at": [
+    20,
+    95.9,
+    0
+   ],
+   "axis": "y",
+   "r": 3,
+   "h": 0.8,
+   "mat": "black"
+  },
+  {
+   "name": "inlet 1",
+   "type": "cylinder",
+   "at": [
+    14.142135623730951,
+    95.9,
+    14.14213562373095
+   ],
+   "axis": "y",
+   "r": 3,
+   "h": 0.8,
+   "mat": "black"
+  },
+  {
+   "name": "inlet 2",
+   "type": "cylinder",
+   "at": [
+    1.2246467991473533e-15,
+    95.9,
+    20
+   ],
+   "axis": "y",
+   "r": 3,
+   "h": 0.8,
+   "mat": "black"
+  },
+  {
+   "name": "inlet 3",
+   "type": "cylinder",
+   "at": [
+    -14.14213562373095,
+    95.9,
+    14.142135623730951
+   ],
+   "axis": "y",
+   "r": 3,
+   "h": 0.8,
+   "mat": "black"
+  },
+  {
+   "name": "inlet 4",
+   "type": "cylinder",
+   "at": [
+    -20,
+    95.9,
+    2.4492935982947065e-15
+   ],
+   "axis": "y",
+   "r": 3,
+   "h": 0.8,
+   "mat": "black"
+  },
+  {
+   "name": "inlet 5",
+   "type": "cylinder",
+   "at": [
+    -14.142135623730955,
+    95.9,
+    -14.14213562373095
+   ],
+   "axis": "y",
+   "r": 3,
+   "h": 0.8,
+   "mat": "black"
+  },
+  {
+   "name": "inlet 6",
+   "type": "cylinder",
+   "at": [
+    -3.673940397442059e-15,
+    95.9,
+    -20
+   ],
+   "axis": "y",
+   "r": 3,
+   "h": 0.8,
+   "mat": "black"
+  },
+  {
+   "name": "inlet 7",
+   "type": "cylinder",
+   "at": [
+    14.142135623730947,
+    95.9,
+    -14.142135623730955
+   ],
+   "axis": "y",
+   "r": 3,
+   "h": 0.8,
+   "mat": "black"
+  }
+ ],
+ "colors": [
+  {
+   "id": "red",
+   "name": "Signal red",
+   "accent": "#d92b21"
+  }
+ ]
+}

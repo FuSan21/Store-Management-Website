@@ -1,3 +1,224 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../../app/Enums/*.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Palette: white and signal red (#d92b21) on near-black ink; one accent, flat grounds.
+ * Type: Archivo throughout. Every colour is a token so dark mode is a variable swap.
+ */
+@theme inline {
+    --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+
+    --color-bg: var(--c-bg);
+    --color-surface: var(--c-surface);
+    --color-raised: var(--c-raised);
+    --color-ink: var(--c-ink);
+    --color-muted: var(--c-muted);
+    --color-line: var(--c-line);
+    --color-accent: var(--c-accent);
+    --color-accent-hover: var(--c-accent-hover);
+    --color-accent-soft: var(--c-accent-soft);
+    --color-accent-ink: #ffffff;
+    --color-ok: var(--c-ok);
+    --color-ok-soft: var(--c-ok-soft);
+    --color-warn: var(--c-warn);
+    --color-warn-soft: var(--c-warn-soft);
+    --color-info: var(--c-info);
+    --color-info-soft: var(--c-info-soft);
+}
+
+:root {
+    --c-bg: #ffffff;
+    --c-surface: #f2f2f2;
+    --c-raised: #ffffff;
+    --c-ink: #0a0a0a;
+    --c-muted: #5f5f5f;
+    --c-line: #e3e3e3;
+    --c-accent: #d92b21;
+    --c-accent-hover: #b8221a;
+    --c-accent-soft: #fbe9e8;
+    --c-ok: #1d7a45;
+    --c-ok-soft: #e4f3ea;
+    --c-warn: #8a5a00;
+    --c-warn-soft: #fbf0d9;
+    --c-info: #1f5fa8;
+    --c-info-soft: #e6eef8;
+    color-scheme: light;
+}
+
+.dark {
+    --c-bg: #0b0b0c;
+    --c-surface: #151517;
+    --c-raised: #1c1c1f;
+    --c-ink: #f3f3f3;
+    --c-muted: #a3a3a3;
+    --c-line: #2b2b2f;
+    --c-accent: #e5483e;
+    --c-accent-hover: #f0645b;
+    --c-accent-soft: #3a1714;
+    --c-ok: #5cc98a;
+    --c-ok-soft: #12291c;
+    --c-warn: #e8b453;
+    --c-warn-soft: #2e2512;
+    --c-info: #7ab0ee;
+    --c-info-soft: #13233a;
+    color-scheme: dark;
+}
+
+@layer base {
+    html {
+        @apply bg-bg text-ink antialiased;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    h1, h2, h3 {
+        letter-spacing: -0.025em;
+        text-wrap: balance;
+    }
+
+    :focus-visible {
+        @apply outline-2 outline-offset-2 outline-accent;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+}
+
+@layer components {
+    .wrap {
+        @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+    }
+
+    /* Buttons step up on hover and press in on click. */
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium whitespace-nowrap select-none;
+        transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+    }
+    .btn:hover:not(:disabled) {
+        transform: translateY(-1px);
+    }
+    .btn:active:not(:disabled) {
+        transform: translateY(0) scale(0.98);
+    }
+    .btn:disabled {
+        @apply cursor-not-allowed opacity-50;
+    }
+    .btn-primary {
+        @apply bg-accent text-accent-ink hover:bg-accent-hover;
+    }
+    .btn-secondary {
+        @apply border border-line bg-raised text-ink hover:border-ink;
+    }
+    .btn-ghost {
+        @apply text-ink hover:bg-surface;
+    }
+    .btn-danger {
+        @apply border border-line bg-raised text-accent hover:border-accent;
+    }
+    .btn-sm {
+        @apply px-3 py-1.5 text-xs;
+    }
+    .btn-lg {
+        @apply px-6 py-3.5 text-base;
+    }
+    .btn-icon {
+        @apply inline-flex size-10 items-center justify-center rounded-lg text-ink hover:bg-surface;
+        transition: background-color 160ms ease, transform 160ms ease;
+    }
+    .btn-icon:active {
+        transform: scale(0.94);
+    }
+
+    .input {
+        @apply block w-full rounded-lg border border-line bg-raised px-3.5 py-2.5 text-sm text-ink placeholder:text-muted;
+        transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+    .input:focus {
+        @apply border-ink outline-none;
+        box-shadow: 0 0 0 3px color-mix(in oklab, var(--c-ink) 12%, transparent);
+    }
+    .input[aria-invalid='true'] {
+        @apply border-accent;
+    }
+    select.input {
+        @apply appearance-none bg-no-repeat pr-10;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23808080' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+        background-position: right 0.85rem center;
+    }
+    .label {
+        @apply mb-1.5 block text-sm font-medium text-ink;
+    }
+    .checkbox {
+        @apply size-4 rounded border-line accent-accent;
+    }
+
+    .card {
+        @apply rounded-xl border border-line bg-raised;
+    }
+
+    /* A linked card lifts 2px; its photo zooms inside the frame. */
+    .lift {
+        transition: transform 200ms ease, border-color 200ms ease;
+    }
+    .lift:hover {
+        transform: translateY(-2px);
+        @apply border-ink/30;
+    }
+    .zoom img {
+        transition: transform 400ms ease;
+    }
+    .zoom:hover img {
+        transform: scale(1.03);
+    }
+
+    /* Text links draw their underline. */
+    .link {
+        @apply font-medium text-ink;
+        background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+        transition: background-size 220ms ease;
+    }
+    .link:hover {
+        background-size: 100% 1px;
+    }
+
+    .eyebrow {
+        @apply text-xs font-semibold tracking-[0.12em] text-muted uppercase;
+    }
+
+    .table-base {
+        @apply w-full text-left text-sm;
+    }
+    .table-base th {
+        @apply border-b border-line px-4 py-3 text-xs font-semibold tracking-wide text-muted uppercase;
+    }
+    .table-base td {
+        @apply border-b border-line px-4 py-3 align-middle;
+    }
+    .table-base tbody tr {
+        transition: background-color 120ms ease;
+    }
+    .table-base tbody tr:hover {
+        @apply bg-surface/60;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+    .btn:hover, .lift:hover, .zoom:hover img {
+        transform: none !important;
+    }
+}
+
+@media print {
+    header, footer, nav, .no-print {
+        display: none !important;
+    }
+}

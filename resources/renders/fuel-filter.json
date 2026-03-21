@@ -1,0 +1,159 @@
+{
+ "id": "fuel-filter",
+ "name": "Inline fuel filter",
+ "label": "A brushed-metal inline fuel filter with a red band and two hose nipples",
+ "units": "mm",
+ "angle": -24,
+ "camera": {
+  "elev": 16
+ },
+ "turn": {
+  "mode": "still"
+ },
+ "materials": {
+  "band": {
+   "kind": "paint",
+   "color": "accent",
+   "finish": "gloss"
+  }
+ },
+ "supports": [
+  "three-quarter",
+  "side"
+ ],
+ "make": {
+  "variants": [
+   "three-quarter"
+  ],
+  "grounds": [
+   "light",
+   "dark"
+  ],
+  "px": 1000
+ },
+ "parts": [
+  {
+   "name": "body",
+   "type": "cylinder",
+   "at": [
+    0,
+    30,
+    0
+   ],
+   "axis": "x",
+   "r": 30,
+   "h": 104,
+   "round": 6,
+   "mat": "alloy"
+  },
+  {
+   "name": "band",
+   "type": "cylinder",
+   "at": [
+    0,
+    30,
+    0
+   ],
+   "axis": "x",
+   "r": 30.6,
+   "h": 34,
+   "round": 1,
+   "mat": "band"
+  },
+  {
+   "name": "cap in",
+   "type": "cylinder",
+   "at": [
+    -55,
+    30,
+    0
+   ],
+   "axis": "x",
+   "r": 14,
+   "h": 8,
+   "round": 2,
+   "mat": "alloy"
+  },
+  {
+   "name": "cap out",
+   "type": "cylinder",
+   "at": [
+    55,
+    30,
+    0
+   ],
+   "axis": "x",
+   "r": 14,
+   "h": 8,
+   "round": 2,
+   "mat": "alloy"
+  },
+  {
+   "name": "nipple in",
+   "type": "tube",
+   "from": [
+    -58,
+    30,
+    0
+   ],
+   "to": [
+    -86,
+    30,
+    0
+   ],
+   "r": 4.2,
+   "cap": "round",
+   "mat": "chrome"
+  },
+  {
+   "name": "nipple out",
+   "type": "tube",
+   "from": [
+    58,
+    30,
+    0
+   ],
+   "to": [
+    86,
+    30,
+    0
+   ],
+   "r": 4.2,
+   "cap": "round",
+   "mat": "chrome"
+  },
+  {
+   "name": "barb in",
+   "type": "torus",
+   "at": [
+    -80,
+    30,
+    0
+   ],
+   "axis": "x",
+   "R": 4.2,
+   "r": 1.2,
+   "mat": "chrome"
+  },
+  {
+   "name": "barb out",
+   "type": "torus",
+   "at": [
+    80,
+    30,
+    0
+   ],
+   "axis": "x",
+   "R": 4.2,
+   "r": 1.2,
+   "mat": "chrome"
+  }
+ ],
+ "colors": [
+  {
+   "id": "red",
+   "name": "Signal red",
+   "accent": "#d92b21"
+  }
+ ]
+}

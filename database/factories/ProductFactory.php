@@ -2,38 +2,81 @@
 
 namespace Database\Factories;
 
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
+/**
+ * @extends Factory<Product>
+ */
 class ProductFactory extends Factory
 {
     /**
-     * Define the model's default state.
-     *
-     * @return array
+     * Popular models on Bangladeshi roads, by brand.
      */
-    public function definition()
+    public const VEHICLES = [
+        'Toyota' => ['Corolla', 'Allion', 'Premio', 'Axio', 'Noah', 'Hiace', 'Prado'],
+        'Honda' => ['Civic', 'Vezel', 'Grace', 'City', 'CR-V'],
+        'Nissan' => ['X-Trail', 'Sunny', 'Bluebird'],
+        'Mitsubishi' => ['Pajero', 'Lancer', 'Outlander'],
+        'Suzuki' => ['Swift', 'Wagon R', 'Ciaz'],
+        'Hyundai' => ['Tucson', 'Elantra', 'Creta'],
+    ];
+
+    /**
+     * Filter collections and the media each comes in.
+     */
+    public const COLLECTIONS = [
+        'Oil Filter' => ['Spin-on', 'Cartridge'],
+        'Air Filter' => ['Panel', 'Polyurethane'],
+        'Fuel Filter' => ['Inline', 'Cartridge'],
+        'Cabin Filter' => ['Activated Carbon', 'Particulate'],
+    ];
+
+    public function definition(): array
     {
-        $specs = [];
-        $noOfSpecs = random_int(1, 5);
-        for ($i = 0; $i < $noOfSpecs; $i++) {
-            $specs[] = array(
-                'engine' => $this->faker->randomElement(array('1.0L', '1.2L', '1.4L', '1.6L', '1.8L', '2.0L')),
-                'fuelType' => $this->faker->randomElement(array('Petrol', 'Diesel', 'Hybrid', 'Electric')),
-                'year' => $this->faker->randomElement(array('2010-2012', '2011-2017', '2012-2021', '2013-2022', '2014-2022', '2015-2023', '2018-2023'))
-            );
-        }
-        $specs = json_encode($specs);
+        $brand = fake()->randomElement(array_keys(self::VEHICLES));
+        $collection = fake()->randomElement(array_keys(self::COLLECTIONS));
+
         return [
-            'euro_id' => $this->faker->unique->uuid,
-            'oem_id' => $this->faker->uuid,
-            'image' => 'http://127.0.0.1:8000/demo-product.png',
-            'price' => $this->faker->randomFloat(2, 100, 5000),
-            'collection' => $this->faker->randomElement(array('Air Filter', 'Oil Filter', '0w-30')),
-            'filter_type' => $this->faker->randomElement(array('Polyurethane', 'Plastic Panel', 'Metal Cap')),
-            'car_brand' => $this->faker->randomElement(array('Audi', 'BMW', 'Castrol', 'Citroen', 'Fiat', 'Ford')),
-            'model' => $this->faker->randomElement(array('B-Max', 'C-Max', 'EcoSport')),
-            'specification' => $specs
+            'euro_id' => 'EU-'.fake()->unique()->numerify('######'),
+            'oem_id' => fake()->unique()->bothify('#####-??###'),
+            'image' => '',
+            'description' => null,
+            'price' => fake()->randomElement([450, 650, 850, 1150, 1450, 1850, 2400, 3200]),
+            'stock' => fake()->numberBetween(0, 60),
+            'low_stock_threshold' => 5,
+            'is_featured' => false,
+            'collection' => $collection,
+            'filter_type' => fake()->randomElement(self::COLLECTIONS[$collection]),
+            'car_brand' => $brand,
+            'model' => fake()->randomElement(self::VEHICLES[$brand]),
+            'specification' => $this->fitments(),
         ];
+    }
+
+    public function featured(): static
+    {
+        return $this->state(fn () => ['is_featured' => true]);
+    }
+
+    public function outOfStock(): static
+    {
+        return $this->state(fn () => ['stock' => 0]);
+    }
+
+    /**
+     * @return array<int, array{engine: string, fuelType: string, year: string}>
+     */
+    private function fitments(): array
+    {
+        return collect(range(1, fake()->numberBetween(1, 4)))
+            ->map(fn () => [
+                'engine' => fake()->randomElement(['1.3L', '1.5L', '1.8L', '2.0L', '2.4L', '2.7L']),
+                'fuelType' => fake()->randomElement(['Petrol', 'Diesel', 'Hybrid', 'CNG']),
+                'year' => fake()->randomElement(['2008-2013', '2012-2018', '2014-2020', '2016-2022', '2018-2024', '2020-2025']),
+            ])
+            ->unique(fn ($row) => implode('|', $row))
+            ->values()
+            ->all();
     }
 }
