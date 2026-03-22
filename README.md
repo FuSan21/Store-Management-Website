@@ -4,7 +4,7 @@ An online shop and store-management dashboard for car filters (oil, air, fuel an
 Customers find the filter that fits their car, pay by bKash, Nagad, card or cash on delivery, and follow the
 order to their door. The store team runs orders, stock, customers and coupons from the admin.
 
-**Stack:** Laravel 13 · PHP 8.4+ · Livewire 4 (with Alpine) · Tailwind CSS 4 · Vite · Chart.js · Pest
+**Stack:** Laravel 13 · PHP 8.4+ · Livewire 4 (with Alpine) · Tailwind CSS 4 · Vite · Chart.js · Pest · Postgres · FrankenPHP on Vercel
 
 ## Features
 
@@ -41,7 +41,7 @@ order to their door. The store team runs orders, stock, customers and coupons fr
 - Rate limits on sign in, checkout, coupons, reviews and the contact form; honeypot on the contact form
 - Stock is taken under row locks inside a transaction, and order lines keep the price they sold at
 - CSV exports neutralise spreadsheet formulas
-- 103 Pest tests
+- 104 Pest tests
 
 ## Set up
 
@@ -85,9 +85,20 @@ Back up the database first.
 
 ## Deploying on Vercel
 
-`vercel.json` builds the assets with `npm run build` and serves PHP through `vercel-php@0.9.0` (PHP 8.5).
-Set `APP_KEY`, `DB_*` and `MAIL_*` in the project's environment variables. Rate limits use the database cache
-store, so run the migrations (which create the `cache` table) before the first deploy.
+The app ships as a container (`Dockerfile`): Node builds the Vite assets, Composer installs the PHP packages,
+and FrankenPHP (PHP 8.4 + Caddy, config in `docker/`) serves it on Vercel's container runtime. The Vercel
+project uses the **Container** framework preset with **Fluid Compute** enabled.
+
+The database is Prisma Postgres from the Vercel Marketplace, connected with the `STOREDB` prefix; Laravel
+reads `STOREDB_DATABASE_URL` (see `config/database.php`). Set `APP_KEY` (Sensitive) in the project's
+environment variables; everything else non-secret is set in the `Dockerfile`. Run migrations against the
+database before deploying a release that adds them:
+
+```bash
+DB_CONNECTION=pgsql DB_URL="<STOREDB_DATABASE_URL>" php artisan migrate --force
+```
+
+Rate limits use the database cache store, which needs the `cache` table from the migrations.
 
 ## Product pictures
 

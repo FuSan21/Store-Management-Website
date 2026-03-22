@@ -1,0 +1,20 @@
+{
+	frankenphp
+	# Vercel terminates TLS in front of the container.
+	auto_https off
+	admin off
+}
+
+:{$PORT:80} {
+	root * /app/public
+	encode zstd gzip
+
+	# Hashed Vite assets never change; product renders change rarely.
+	@hashed path /build/*
+	header @hashed Cache-Control "public, max-age=31536000, immutable"
+
+	@images path /images/* /favicon.svg
+	header @images Cache-Control "public, max-age=86400"
+
+	php_server
+}

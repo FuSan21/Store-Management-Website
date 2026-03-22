@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Product;
+use App\Models\Review;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
@@ -96,7 +97,10 @@ class ShopCatalog extends Component
             'newest' => $query->latest(),
             'price-asc' => $query->orderBy('price'),
             'price-desc' => $query->orderByDesc('price'),
-            'rating' => $query->orderByDesc('reviews_avg_rating'),
+            // Unrated products sort last on every database (Postgres puts NULLs first in DESC).
+            'rating' => $query->orderByDesc(Review::query()
+                ->selectRaw('coalesce(avg(rating), 0)')
+                ->whereColumn('reviews.product_id', 'products.bmuk_no')),
             'brand' => $query->orderBy('car_brand')->orderBy('model'),
             default => $query->orderByDesc('is_featured')->orderByRaw('stock = 0')->orderBy('bmuk_no'),
         };
