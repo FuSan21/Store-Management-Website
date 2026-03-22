@@ -6,6 +6,36 @@ order to their door. The store team runs orders, stock, customers and coupons fr
 
 **Stack:** Laravel 13 · PHP 8.4+ · Livewire 4 (with Alpine) · Tailwind CSS 4 · Vite · Chart.js · Pest · Postgres · FrankenPHP on Vercel
 
+**Live demo:** [demo1.fusan.me](https://demo1.fusan.me) — sign in as `admin@example.com` or `customer@example.com`, password `password`.
+
+## Screenshots
+
+![Home page with the vehicle finder](docs/screenshots/home.webp)
+
+| Shop filtered to a car | Product page |
+|---|---|
+| ![Shop](docs/screenshots/shop.webp) | ![Product](docs/screenshots/product.webp) |
+
+| Cart with a discount code | Checkout |
+|---|---|
+| ![Cart](docs/screenshots/cart.webp) | ![Checkout](docs/screenshots/checkout.webp) |
+
+| Order timeline | Shop on a phone |
+|---|---|
+| ![Order](docs/screenshots/order.webp) | <img src="docs/screenshots/mobile-shop.webp" alt="Shop on a phone" width="300"> |
+
+### Admin
+
+![Admin dashboard](docs/screenshots/admin-dashboard.webp)
+
+| Order with status controls | Inventory and stock ledger |
+|---|---|
+| ![Admin order](docs/screenshots/admin-order.webp) | ![Inventory](docs/screenshots/admin-inventory.webp) |
+
+| Product editor | Dark mode |
+|---|---|
+| ![Product editor](docs/screenshots/admin-product.webp) | ![Dark dashboard](docs/screenshots/admin-dashboard-dark.webp) |
+
 ## Features
 
 **Shop**
